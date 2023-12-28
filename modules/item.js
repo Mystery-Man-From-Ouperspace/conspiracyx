@@ -34,7 +34,7 @@ export class conspiracyxItem extends Item {
 
 
 
-        data.descriptionHTML = TextEditor.enrichHTML(itemData.description, {
+        actorData.descriptionHTML = TextEditor.enrichHTML(itemData.description, {
           secrets: false,
           async: true
         });
@@ -51,7 +51,7 @@ export class conspiracyxItem extends Item {
 
 
 
-        data.descriptionHTML = TextEditor.enrichHTML(itemData.description, {
+        actorData.descriptionHTML = TextEditor.enrichHTML(itemData.description, {
           secrets: false,
           async: true
         });
@@ -68,7 +68,7 @@ export class conspiracyxItem extends Item {
 
 
 
-        data.descriptionHTML = TextEditor.enrichHTML(itemData.description, {
+        actorData.descriptionHTML = TextEditor.enrichHTML(itemData.description, {
           secrets: false,
           async: true
         });

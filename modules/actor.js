@@ -33,7 +33,7 @@ export class conspiracyxActor extends Actor {
 
 
 
-      data.descriptionHTML = TextEditor.enrichHTML(data.biography, {
+      actorData.descriptionHTML = TextEditor.enrichHTML(data.biography, {
         secrets: false,
         async: true
       });
@@ -113,7 +113,7 @@ export class conspiracyxActor extends Actor {
 
 
 
-      data.descriptionHTML = TextEditor.enrichHTML(data.biography, {
+      actorData.descriptionHTML = TextEditor.enrichHTML(data.biography, {
         secrets: false,
         async: true
       });
