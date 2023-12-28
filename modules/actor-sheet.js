@@ -124,7 +124,12 @@ export class conspiracyxActorSheet extends ActorSheet {
             const item = this.actor.items.get(li.dataset.itemId)
             //////////////////////////////////////////////////////////////////////////////////////////////
             // if(this.actor.permission[game.user.data._id] >= 2||game.user.isGM) {item.sheet.render(true)}
-            if(this.actor.permission[game.user._id] >= 2||game.user.isGM) {item.sheet.render(true)}
+            console.log("ID = ", game.user.id);
+            console.log("ID = ", game.user._id);
+            console.log("Name = ", game.user.name);
+            console.log("Permission ID = ", this.actor.permission[game.user.id]); /// Est-ce correct ?
+            console.log("Permission is GM = ", game.user.isGM);
+            if(this.actor.permission[game.user._id] >= 2||game.user.isGM) {item.sheet.render(true)} /// Est-ce correct ?
             //////////////////////////////////////////////////////////////////////////////////////////////
             item.update({"data.value": item.system.value})
         })
