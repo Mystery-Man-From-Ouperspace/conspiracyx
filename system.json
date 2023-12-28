@@ -1,0 +1,33 @@
+{
+    "name": "conspiracyx",
+    "title": "Conspiracy X",
+    "description": "A digital system for playing CONX (Conspiracy X) by Eden Studios",
+    "version": 1.27,
+    "minimumCoreVersion": "0.8.9",
+    "compatibleCoreVersion": "10",
+    "templateVersion": 2,
+    "author": "DogBoneZone",
+    "esmodules": ["modules/main.js"],
+    "styles": ["styles/main.css"],
+    "languages": [
+        {
+          "lang": "en",
+          "name": "English",
+          "path": "lang/en.json"
+        },
+          {
+          "lang": "fr",
+          "name": "Français",
+          "path": "lang/fr.json"
+        }
+      ],
+    "gridDistance": 5,
+    "gridUnits": "ft",
+    "primaryTokenAttribute": "hp",
+    "secondaryTokenAttribute": "endurance_points",
+    "packs": [],
+    "url": "",
+    "manifest": "https://gitlab.com/DogBoneZone/conspiracyx/raw/main/system.json",
+    "download": "https://gitlab.com/DogBoneZone/conspiracyx/-/archive/1.27/conspiracyx-1.27.zip",
+    "license": "LICENSE.txt"
+}
