@@ -29,7 +29,6 @@ export class conspiracyxItem extends Item {
     }
 
     _prepareQualityDrawback(actorData, itemData) {
-        const data = actorData.system
 
 
 
@@ -46,7 +45,6 @@ export class conspiracyxItem extends Item {
     }
 
     _prepareSkillPower(actorData, itemData) {
-        const data = actorData.system
 
 
 
@@ -63,7 +61,6 @@ export class conspiracyxItem extends Item {
     }
 
     _prepareWeaponItem(actorData, itemData) {
-        const data = actorData.system
 
 
 
