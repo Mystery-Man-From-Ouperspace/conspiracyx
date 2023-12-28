@@ -73,7 +73,8 @@
             </div>
             <div class="item-description-sidebar">
                 <h2 class="item-desc">{{ localize "CONX.Description" }}</h2>
-                {{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
+                {{editor descriptionHTML target="system.description" button=true editable=editable engine="prosemirror"}}
+
             </div>
         </div>
     </section>

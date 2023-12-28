@@ -28,11 +28,55 @@ export class conspiracyxItem extends Item {
         }
     }
 
-    _prepareQualityDrawback(actorData, itemData) {}
+    _prepareQualityDrawback(actorData, itemData) {
+        const data = actorData.system
 
-    _prepareSkillPower(actorData, itemData) {}
+
+
+
+        data.descriptionHTML = TextEditor.enrichHTML(itemData.description, {
+          secrets: false,
+          async: true
+        });
+  
+  
+  
+  
+  
+    }
+
+    _prepareSkillPower(actorData, itemData) {
+        const data = actorData.system
+
+
+
+
+        data.descriptionHTML = TextEditor.enrichHTML(itemData.description, {
+          secrets: false,
+          async: true
+        });
+  
+  
+  
+  
+  
+    }
 
     _prepareWeaponItem(actorData, itemData) {
+        const data = actorData.system
+
+
+
+
+        data.descriptionHTML = TextEditor.enrichHTML(itemData.description, {
+          secrets: false,
+          async: true
+        });
+  
+  
+  
+  
+  
         // Build Damage String by combining Damage Entry with Damage Multiplier Entry (Looks at Actor to grab Multiplier Value)
         // This does not apply to weapons on vehicles
         if (itemData.damage_cha_multiplier != "none" && this.isEmbedded && this.actor.type != 'vehicle') {

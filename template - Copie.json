@@ -1,6 +1,6 @@
 {
     "Actor": {
-        "types": ["character", "vehicle"],
+        "types": ["character", "creature", "vehicle"],
         "templates": {
             "attributes": {
                 "characterType": 0,
@@ -260,6 +260,10 @@
         },
         "character": {
             "templates": ["attributes", "bio"]
+        },
+        "creature": {
+            "templates": ["attributes", "bio"],
+            "power": 0
         },
         "vehicle": {
             "weight":  0,

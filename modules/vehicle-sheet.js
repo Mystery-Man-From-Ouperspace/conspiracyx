@@ -133,8 +133,8 @@ export class conspiracyxVehicleSheet extends ActorSheet {
                                 <table class="conspiracyx-chat-roll-table">
                                     <thead>
                                         <tr>
-                                            <th>Damage</th>
-                                            <th>Detail</th>
+                                            <th>`+game.i18n.localize(`CONX.Damage`)+`</th>
+                                            <th>`+game.i18n.localize(`CONX.Detail`)+`</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -170,8 +170,8 @@ export class conspiracyxVehicleSheet extends ActorSheet {
                                 <table class="conspiracyx-chat-roll-table">
                                     <thead>
                                         <tr>
-                                            <th>Result</th>
-                                            <th>Detail</th>
+                                            <th>`+game.i18n.localize(`CONX.Result`)+`</th>
+                                            <th>`+game.i18n.localize(`CONX.Detail`)+`</th>
                                         </tr>
                                     </thead>
                                     <tbody>

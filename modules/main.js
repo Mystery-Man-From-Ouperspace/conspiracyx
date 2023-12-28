@@ -3,7 +3,7 @@ import { conspiracyxActorSheet } from "./actor-sheet.js";
 import { conspiracyxActor } from "./actor.js";
 import { conspiracyxItem } from "./item.js";
 import { conspiracyxItemSheet } from "./item-sheet.js";
-import { conspiracyxCreatureSheet } from "./creature-sheet.js"
+// import { conspiracyxCreatureSheet } from "./creature-sheet.js"
 import { conspiracyxVehicleSheet } from "./vehicle-sheet.js"
 
 /* -------------------------------------------- */
@@ -36,12 +36,12 @@ Hooks.once("init", async function() {
           label: "Default CONX Character Sheet"
       })
 
-      Actors.registerSheet("conspiracyx", conspiracyxCreatureSheet, 
+      /* Actors.registerSheet("conspiracyx", conspiracyxCreatureSheet, 
       {
           types: ["creature"],
           makeDefault: true,
           label: "Default CONX Creature Sheet"
-      })
+      }) */
 
       Actors.registerSheet("conspiracyx", conspiracyxVehicleSheet, 
       {

@@ -1,13 +1,14 @@
 export class conspiracyxActor extends Actor {
     async _preCreate(data, options, user) {
       await super._preCreate(data, options, user);
+
       if (data.type === "character") {
         this.prototypeToken.updateSource({'sight.enabled': true, actorLink: true, disposition: 1})
       }
 
-      if (data.type === 'creature') {
+      /* if (data.type === 'creature') {
         this.prototypeToken.updateSource({disposition: -1})
-      }
+      } */
 
       if (data.type === 'vehicle') {
         this.prototypeToken.updateSource({disposition: 0})
@@ -21,12 +22,25 @@ export class conspiracyxActor extends Actor {
         const flags = actorData.flags;
 
         if (actorData.type === 'character') {this._prepareCharacterData(actorData)}
-        if (actorData.type === 'creature') {this._prepareCreatureData(actorData)}
+        // if (actorData.type === 'creature') {this._prepareCreatureData(actorData)}
         if (actorData.type === 'vehicle') {this._prepareVehicleData(actorData)}
     }
 
     _prepareCharacterData(actorData) {
       const data = actorData.system
+
+
+
+
+
+      data.descriptionHTML = TextEditor.enrichHTML(data.biography, {
+        secrets: false,
+        async: true
+      });
+
+
+
+
 
       // Set Character Point Values
       let chaTypeLabel = data.characterTypes[data.characterType]
@@ -72,7 +86,7 @@ export class conspiracyxActor extends Actor {
 
     }
 
-    _prepareCreatureData(actorData) {
+    /* _prepareCreatureData(actorData) {
       const data = actorData.system
 
       // Set Encumbrance Values
@@ -91,9 +105,22 @@ export class conspiracyxActor extends Actor {
       // Calculate Power Total
       data.power = this._calculatePowerTotal(data)
 
-    }
+    } */
 
     _prepareVehicleData(actorData) {
+      const data = actorData.system
+
+
+
+
+      data.descriptionHTML = TextEditor.enrichHTML(data.biography, {
+        secrets: false,
+        async: true
+      });
+
+
+
+
 
     }
 

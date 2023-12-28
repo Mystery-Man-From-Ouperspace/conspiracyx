@@ -135,7 +135,8 @@
             <div class="tab core" data-group="primary" data-tab="core">
                 <div class="bio-container">
                     <h2>{{ localize "CONX.Description" }}</h2>
-                    {{editor actor.system.biography target="system.biography" button=true owner=owner editable=editable}}
+                    {{editor descriptionHTML target="system.biography" button=true editable=editable engine="prosemirror"}}
+
                 </div>
                 <div class="professsion-container">
                     <h2>Profession</h2>
