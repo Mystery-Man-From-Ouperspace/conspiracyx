@@ -156,15 +156,33 @@
   "CONX.Rule of One Re-Roll": "Rule of One Re-Roll",
   "CONX.Rule of Ten Re-Roll": "Rule of Ten Re-Roll",
 
+  "CONX.Light Mode": "Light Mode",
+  "CONX.Checking this option enables Light Mode, stripping away the dark mode aesthetics from the sheets.":
+            "Checking this option enables Light Mode, stripping away the dark mode aesthetics from the sheets.",
+
+  "CONX.Facilities": "Facilities",
+  "CONX.Staff": "Staff",
+  "CONX.Weaponery": "Weaponery",
+  "CONX.Gear": "Gear",
+  "CONX.Espionage": "Espionage",
+  "CONX.Vehicles": "Vehicles",
+  "CONX.Science": "Science",
+  "CONX.Electronics": "Electronics",
+
+  "CONX.Location": "Location",
+
+
   "TYPES": {
     "Actor": {
       "character": "Character",
+      "cell": "Cell",
       "vehicle": "Vehicle"
     },
     "Item": {
       "quality": "Quality",
       "drawback": "Drawback",
       "skill": "Skill",
+      "power": "Power",
       "weapon": "Weapon",
       "item": "Item",
       "aspect": "Aspect"

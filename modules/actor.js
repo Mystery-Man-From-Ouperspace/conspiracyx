@@ -6,9 +6,9 @@ export class conspiracyxActor extends Actor {
         this.prototypeToken.updateSource({'sight.enabled': true, actorLink: true, disposition: 1})
       }
 
-      /* if (data.type === 'creature') {
+      if (data.type === 'cell') {
         this.prototypeToken.updateSource({disposition: -1})
-      } */
+      }
 
       if (data.type === 'vehicle') {
         this.prototypeToken.updateSource({disposition: 0})
@@ -22,7 +22,7 @@ export class conspiracyxActor extends Actor {
         const flags = actorData.flags;
 
         if (actorData.type === 'character') {this._prepareCharacterData(actorData)}
-        // if (actorData.type === 'creature') {this._prepareCreatureData(actorData)}
+        if (actorData.type === 'cell') {this._prepareCellData(actorData)}
         if (actorData.type === 'vehicle') {this._prepareVehicleData(actorData)}
     }
 
@@ -106,6 +106,23 @@ export class conspiracyxActor extends Actor {
       data.power = this._calculatePowerTotal(data)
 
     } */
+
+    _prepareCellData(actorData) {
+      const data = actorData.system
+
+
+
+
+      actorData.descriptionHTML = TextEditor.enrichHTML(data.biography, {
+        secrets: false,
+        async: true
+      });
+
+
+
+
+
+    }
 
     _prepareVehicleData(actorData) {
       const data = actorData.system

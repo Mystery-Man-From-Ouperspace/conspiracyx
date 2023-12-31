@@ -28,6 +28,7 @@
     "secondaryTokenAttribute": "endurance_points",
     "packs": [],
     "url": "",
+    "background": "/systems/conspiracyx/images/background/zone_51_conspiracy_x.jpg",
     "manifest": "https://github.com/DogBoneZone/conspiracyx/raw/main/system.json",
     "download": "https://github.com/DogBoneZone/conspiracyx/-/archive/1.27/conspiracyx-1.27.zip",
     "license": "LICENSE.txt"

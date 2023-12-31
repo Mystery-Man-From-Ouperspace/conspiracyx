@@ -156,15 +156,33 @@
   "CONX.Rule of One Re-Roll": "Règle de Un Relance",
   "CONX.Rule of Ten Re-Roll": "Règle de Dix Relance",
 
+  "CONX.Light Mode": "Mode Clair",
+  "CONX.Checking this option enables Light Mode, stripping away the dark mode aesthetics from the sheets.":
+            "Cocher cette option active le Mode Clair, supprimant l'esthétique du Mode Sombre des fiches.",
+  
+  "CONX.Facilities": "Installations",
+  "CONX.Staff": "Personnel",
+  "CONX.Weaponery": "Armement",
+  "CONX.Gear": "Matériel",
+  "CONX.Espionage": "Espionnage",
+  "CONX.Vehicles": "Véhicles",
+  "CONX.Science": "Science",
+  "CONX.Electronics": "Électronique",
+
+  "CONX.Location": "Local",
+
+
 "TYPES": {
   "Actor": {
     "character": "Personnage",
+    "cell": "Cellule",
     "vehicle": "Véhicule"
   },
   "Item": {
     "quality": "Qualité",
     "drawback": "Désavantage",
     "skill": "Compétence",
+    "power": "Pouvoir",
     "weapon": "Arme",
     "item": "Objet",
     "aspect": "Aspect"

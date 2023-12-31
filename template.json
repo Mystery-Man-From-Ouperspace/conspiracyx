@@ -1,6 +1,6 @@
 {
     "Actor": {
-        "types": ["character", "vehicle"],
+        "types": ["character", "cell", "vehicle"],
         "templates": {
             "attributes": {
                 "characterType": 0,
@@ -261,6 +261,112 @@
         "character": {
             "templates": ["attributes", "bio"]
         },
+        "cell": {
+            "templates": ["bio"],
+            "leader": {
+                "name": "",
+                "level": 0,
+                "RPs": 0,
+                "Arm": false,
+                "Int": false,
+                "Sci": false,
+                "Crm": false,
+                "Law": false,
+                "Med": false,
+                "Par": false,
+                "Civ": false
+            },
+            "member1" : {
+                "name": "",
+                "level": 0,
+                "RPs": 0,
+                "Arm": false,
+                "Int": false,
+                "Sci": false,
+                "Crm": false,
+                "Law": false,
+                "Med": false,
+                "Par": false,
+                "Civ": false
+            },
+            "member2" : {
+                "name": "",
+                "level": 0,
+                "RPs": 0,
+                "Arm": false,
+                "Int": false,
+                "Sci": false,
+                "Crm": false,
+                "Law": false,
+                "Med": false,
+                "Par": false,
+                "Civ": false
+            },
+            "member3" : {
+                "name": "",
+                "level": 0,
+                "RPs": 0,
+                "Arm": false,
+                "Int": false,
+                "Sci": false,
+                "Crm": false,
+                "Law": false,
+                "Med": false,
+                "Par": false,
+                "Civ": false
+            },
+            "member4" : {
+                "name": "",
+                "level": 0,
+                "RPs": 0,
+                "Arm": false,
+                "Int": false,
+                "Sci": false,
+                "Crm": false,
+                "Law": false,
+                "Med": false,
+                "Par": false,
+                "Civ": false
+            },
+            "member5" : {
+                "name": "",
+                "level": 0,
+                "RPs": 0,
+                "Arm": false,
+                "Int": false,
+                "Sci": false,
+                "Crm": false,
+                "Law": false,
+                "Med": false,
+                "Par": false,
+                "Civ": false
+            },
+            "member6" : {
+                "name": "",
+                "level": 0,
+                "RPs": 0,
+                "Arm": false,
+                "Int": false,
+                "Sci": false,
+                "Crm": false,
+                "Law": false,
+                "Med": false,
+                "Par": false,
+                "Civ": false
+            },
+            "locationA": {
+                "name": ""
+            },
+            "locationB": {
+                "name": ""
+            },
+            "locationC": {
+                "name": ""
+            },
+            "locationD": {
+                "name": ""
+            }
+        },
         "vehicle": {
             "weight":  0,
             "speed": 0,
@@ -276,7 +382,7 @@
         }
     },
     "Item": {
-        "types": ["quality", "drawback", "skill", "power", "weapon", "item", "aspect"],
+        "types": ["quality", "drawback", "skill", "power", "weapon", "item", "aspect", "facilities", "staff", "weaponery", "gear", "espionage", "vehicles", "science", "electronics"],
         "templates": {
             "weapon": {
                 "range": "",
@@ -352,7 +458,56 @@
         },
         "aspect": {
             "templates": ["common"],
+            "equipped": false,
             "power": 0
+        },
+        "facilities": {
+            "templates": ["common"],
+            "equipped": false,
+            "location": "A",
+            "qty": 1
+        },
+        "staff": {
+            "templates": ["common"],
+            "equipped": false,
+            "location": "A",
+            "qty": 1
+        },
+        "weaponery": {
+            "templates": ["common"],
+            "equipped": false,
+            "location": "A",
+            "qty": 1
+        },
+        "gear": {
+            "templates": ["common"],
+            "equipped": false,
+            "location": "A",
+            "qty": 1
+        },
+        "espionage": {
+            "templates": ["common"],
+            "equipped": false,
+            "location": "A",
+            "qty": 1
+        },
+        "vehicles": {
+            "templates": ["common"],
+            "equipped": false,
+            "location": "A",
+            "qty": 1
+        },
+        "science": {
+            "templates": ["common"],
+            "equipped": false,
+            "location": "A",
+            "qty": 1
+        },
+        "electronics": {
+            "templates": ["common"],
+            "equipped": false,
+            "location": "A",
+            "qty": 1
         }
     }
 }

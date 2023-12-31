@@ -17,12 +17,22 @@ export class conspiracyxItem extends Item {
                     break
 
                 case 'skill':
-                case 'power':
+                // case 'power':
                     this._prepareSkillPower(actorData, itemData)
                     break
 
                 case 'weapon':
                     this._prepareWeaponItem(actorData, itemData)
+                    break
+                case 'facilities':
+                case 'staff':
+                case 'weaponery':
+                case 'gear':
+                case 'espionage':
+                case 'vehicles':
+                case 'science':
+                case 'electronics':
+                    this._prepareGearItem(actorData, itemData)
                     break
             }
         }
@@ -45,6 +55,22 @@ export class conspiracyxItem extends Item {
     }
 
     _prepareSkillPower(actorData, itemData) {
+
+
+
+
+        actorData.descriptionHTML = TextEditor.enrichHTML(itemData.description, {
+          secrets: false,
+          async: true
+        });
+  
+  
+  
+  
+  
+    }
+
+    _prepareGearItem(actorData, itemData) {
 
 
 

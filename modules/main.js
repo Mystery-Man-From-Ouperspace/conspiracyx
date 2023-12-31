@@ -3,7 +3,7 @@ import { conspiracyxActorSheet } from "./actor-sheet.js";
 import { conspiracyxActor } from "./actor.js";
 import { conspiracyxItem } from "./item.js";
 import { conspiracyxItemSheet } from "./item-sheet.js";
-// import { conspiracyxCreatureSheet } from "./creature-sheet.js"
+import { conspiracyxCellSheet } from "./cell-sheet.js"
 import { conspiracyxVehicleSheet } from "./vehicle-sheet.js"
 
 /* -------------------------------------------- */
@@ -36,12 +36,12 @@ Hooks.once("init", async function() {
           label: "Default CONX Character Sheet"
       })
 
-      /* Actors.registerSheet("conspiracyx", conspiracyxCreatureSheet, 
+      Actors.registerSheet("conspiracyx", conspiracyxCellSheet, 
       {
-          types: ["creature"],
+          types: ["cell"],
           makeDefault: true,
-          label: "Default CONX Creature Sheet"
-      }) */
+          label: "Default CONX Cell Sheet"
+      })
 
       Actors.registerSheet("conspiracyx", conspiracyxVehicleSheet, 
       {
@@ -61,8 +61,8 @@ Hooks.once("init", async function() {
       function delayedReload() {window.setTimeout(() => location.reload(), 500)}
 
       game.settings.register("conspiracyx", "light-mode", {
-        name: "Light Mode",
-        hint: "Checking this option enables Light Mode, stripping away the dark mode aesthetics from the sheets.",
+        name: game.i18n.localize("CONX.Light Mode"),
+        hint: game.i18n.localize("CONX.Checking this option enables Light Mode, stripping away the dark mode aesthetics from the sheets."),
         scope: "world",
         config: true,
         default: false,
@@ -93,17 +93,17 @@ Hooks.on("renderChatMessage", (app, html, data) => {
             let attributeLabel = html[0].querySelector('h2').outerHTML
             let diceTotal = Number(html[0].querySelector("[data-roll='dice-total']").textContent)
             let rollMod = Number(html[0].querySelector("[data-roll='modifier']").textContent)
-            let ruleOfMod = ruleTag === 'Rule of Ten Re-Roll' ? Number(roll.result) > 5 ? Number(roll.result) - 5 : 0 : Number(roll.result) > 5 ? 0 : Number(roll.result) - 5
+            let ruleOfMod = ruleTag === game.i18n.localize("CONX.Rule of Ten Re-Roll") ? Number(roll.result) > 5 ? Number(roll.result) - 5 : 0 : Number(roll.result) > 5 ? 0 : Number(roll.result) - 5
             let ruleOfDiv = ''
 
             if (roll.result == 10) {
-                ruleOfDiv = `<h2 class="rule-of-chat-text">Rule of 10!</h2>
-                            <button type="button" data-roll="roll-again" class="rule-of-ten">Roll Again</button>`
+                ruleOfDiv = `<h2 class="rule-of-chat-text">`+game.i18n.localize(`CONX.Rule of 10!`)`</h2>
+                            <button type="button" data-roll="roll-again" class="rule-of-ten">`+game.i18n.localize(`CONX.Roll Again`)`</button>`
                 ruleOfMod = 5
             }
             if (roll.result == 1) {
-                ruleOfDiv = `<h2 class="rule-of-chat-text">Rule of 1!</h2>
-                            <button type="button" data-roll="roll-again" class="rule-of-one">Roll Again</button>`
+                ruleOfDiv = `<h2 class="rule-of-chat-text">`+game.i18n.localize(`CONX.Rule of 1!`)`</h2>
+                            <button type="button" data-roll="roll-again" class="rule-of-one">`+game.i18n.localize(`CONX.Roll Again`)`</button>`
                 ruleOfMod = -5
             }
 
