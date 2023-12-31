@@ -26,7 +26,31 @@
     "gridUnits": "ft",
     "primaryTokenAttribute": "hp",
     "secondaryTokenAttribute": "endurance_points",
-    "packs": [],
+    "packs": [
+      {
+        "name": "zener-cards-color",
+        "label": "Zener Cards (Color)",
+        "system": "conspiracyx",
+        "path": "packs/zener-cards-color",
+        "type": "Cards",
+        "ownership": {
+          "PLAYER": "OBSERVER",
+          "ASSISTANT": "OWNER"
+        },
+        "flags": {}
+      },
+      {
+        "name": "zener-cards-bandw",
+        "label": "Zener Cards (B&W)",
+        "system": "conspiracy",
+        "path": "packs/zener-cards-bandw",
+        "type": "Cards",
+        "ownership": {
+          "PLAYER": "OBSERVER",
+          "ASSISTANT": "OWNER"
+        },
+        "flags": {}
+      }],
     "url": "",
     "background": "/systems/conspiracyx/images/background/zone_51_conspiracy_x.jpg",
     "manifest": "https://github.com/DogBoneZone/conspiracyx/raw/main/system.json",
