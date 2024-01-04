@@ -423,6 +423,7 @@
                 "cost": 0,
                 "availability": "",
                 "availabilityOptions": ["Common", "Uncommon", "Rare"],
+                "locationOptions": ["Borrowed", "LocationA", "LocationB", "LocationC", "LocationD"],
                 "description": "",
                 "resource_bonus": {
                     "hp": 0,
@@ -456,57 +457,61 @@
             "armor_value": 0,
             "qty": 1
         },
-        "aspect": {
-            "templates": ["common"],
-            "equipped": false,
-            "power": 0
+        "locations": {
+          "templates": ["common"],
+          "equipped": false,
+          "location": "1",
+          "qty": 1
+
         },
-        "facilities": {
+          "facilities": {
             "templates": ["common"],
             "equipped": false,
-            "location": "A",
+            "location": "1",
             "qty": 1
         },
         "staff": {
             "templates": ["common"],
             "equipped": false,
-            "location": "A",
+            "location": "1",
             "qty": 1
         },
         "weaponery": {
             "templates": ["common"],
             "equipped": false,
-            "location": "A",
+            "type": "",
+            "location": "1",
             "qty": 1
         },
         "gear": {
             "templates": ["common"],
             "equipped": false,
-            "location": "A",
-            "qty": 1
-        },
-        "espionage": {
-            "templates": ["common"],
-            "equipped": false,
-            "location": "A",
+            "type": "",
+            "location": "1",
             "qty": 1
         },
         "vehicles": {
             "templates": ["common"],
             "equipped": false,
-            "location": "A",
+            "location": "1",
             "qty": 1
         },
         "science": {
             "templates": ["common"],
             "equipped": false,
-            "location": "A",
+            "location": "1",
             "qty": 1
         },
-        "electronics": {
+        "medical": {
             "templates": ["common"],
             "equipped": false,
-            "location": "A",
+            "location": "1",
+            "qty": 1
+        },
+        "restricted": {
+            "templates": ["common"],
+            "equipped": false,
+            "location": "1",
             "qty": 1
         }
     }

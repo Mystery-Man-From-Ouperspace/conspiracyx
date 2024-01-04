@@ -35,14 +35,15 @@ export class conspiracyxCellSheet extends ActorSheet {
       const actorData = sheetData.actor
 
       // Initialize Containers
+      const locations = [];
       const facilities = [];
       const staff = [];
       const weaponery = [];
       const gear = [];
-      const espionage = [];
       const vehicles = [];
       const science = [];
-      const electronics = [];
+      const medical = [];
+      const restricted = [];
 
       // Iterate through items and assign to containers
       for (let i of sheetData.items) {
@@ -55,44 +56,48 @@ export class conspiracyxCellSheet extends ActorSheet {
             case "weapon": 
                 weapon.push(i)
                 break */
+
+            case "locations":
+                locations.push(i)
+                break
                
             case "facilities": 
                 facilities.push(i)
                 break
 
-                case "staff": 
+            case "staff": 
                 staff.push(i)
                 break
 
-                case "weaponery": 
+            case "weaponery": 
                 weaponery.push(i)
                 break
 
-                case "gear": 
+            case "gear": 
                 gear.push(i)
                 break
 
-                case "espionage": 
-                espionage.push(i)
-                break
-
-                case "vehicles": 
+            case "vehicles": 
                 vehicles.push(i)
                 break
 
-                case "science": 
+            case "science": 
                 science.push(i)
                 break
 
-                case "electronics": 
-                electronics.push(i)
+            case "medical": 
+                medical.push(i)
+                break
+
+            case "restricted": 
+                restricted.push(i)
                 break
           }
       }
 
       // Alphabetically sort all items
       // const itemCats = [item, equippedItem, weapon]
-      const itemCats = [facilities, staff, weaponery, gear, espionage, vehicles, science, electronics]
+      const itemCats = [locations, facilities, staff, weaponery, gear, vehicles, science, medical, restricted]
       for (let category of itemCats) {
           if (category.length > 1) {
               category.sort((a,b) => {
@@ -109,10 +114,10 @@ export class conspiracyxCellSheet extends ActorSheet {
       actorData.staff = staff
       actorData.weaponery = weaponery
       actorData.gear = gear
-      actorData.espionage = espionage
       actorData.vehicles = vehicles
       actorData.science = science
-      actorData.electronics = electronics
+      actorData.medical = medical
+      actorData.restricted = restricted
   }
 
   /** @override */

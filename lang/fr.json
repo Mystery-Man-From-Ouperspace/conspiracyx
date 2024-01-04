@@ -160,14 +160,16 @@
   "CONX.Checking this option enables Light Mode, stripping away the dark mode aesthetics from the sheets.":
             "Cocher cette option active le Mode Clair, supprimant l'esthétique du Mode Sombre des fiches.",
   
+  "CONX.Locations": "Locaux",
   "CONX.Facilities": "Installations",
   "CONX.Staff": "Personnel",
   "CONX.Weaponery": "Armement",
   "CONX.Gear": "Matériel",
-  "CONX.Espionage": "Espionnage",
-  "CONX.Vehicles": "Véhicles",
-  "CONX.Science": "Science",
-  "CONX.Electronics": "Électronique",
+  "CONX.Vehicles": "Véhicules",
+  "CONX.Resources": "Ressources",
+  "CONX.Scientific Resources": "Resources Scientifiques",
+  "CONX.Medical Resources": "Ressources Médicales",
+  "CONX.Restricted Resources": "Ressources à Accès Restreint",
 
   "CONX.Location": "Local",
 

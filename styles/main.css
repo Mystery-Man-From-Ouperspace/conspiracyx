@@ -797,7 +797,7 @@
 /* concerne l'interface de Foundry */
 
 #logo {
-    content: url("/systems/conspiracyx/images/logo_conspiracy_x_normal.png");
+    content: url("/systems/conspiracyx/images/icons/logo_conspiracy_x_normal.png");
     width: 100px;
     height: 25px;
     margin-left: 9px;
@@ -805,7 +805,7 @@
   }
   
   #pause > img {
-    content: url("/systems/conspiracyx/images/aegis.png");
+    content: url("/systems/conspiracyx/images/icons/aegis.png");
     height: 192px;
     width: 192px;
     top: -45px;

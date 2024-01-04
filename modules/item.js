@@ -24,14 +24,15 @@ export class conspiracyxItem extends Item {
                 case 'weapon':
                     this._prepareWeaponItem(actorData, itemData)
                     break
+                case 'locations':
                 case 'facilities':
                 case 'staff':
                 case 'weaponery':
                 case 'gear':
-                case 'espionage':
                 case 'vehicles':
                 case 'science':
-                case 'electronics':
+                case 'medical':
+                case 'restricted':
                     this._prepareGearItem(actorData, itemData)
                     break
             }

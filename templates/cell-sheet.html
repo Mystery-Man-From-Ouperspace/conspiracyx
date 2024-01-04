@@ -14,9 +14,11 @@
                             <nav class="sheet-nav sheet-tabs tabs" data-group="primary">
                                 <a class="item" data-tab="core">{{ localize "CONX.Core" }}</a>
                                 <a class="item" data-tab="equipment">{{ localize "CONX.Equipment" }}</a>
+                                <a class="item" data-tab="resources">{{ localize "CONX.Resources" }}</a>
                             </nav>
                         </details>
-                    </div>                    <div class="profile-tags-container">
+                    </div>
+                    <div class="profile-tags-container">
                         <div class="tags-flex-container"></div>
                     </div>
                 </div>
@@ -44,6 +46,38 @@
 
                 </div>
 
+
+                <div class="locations-table">
+                    <h2 class="header-with-button">
+                        <button type="button" class="create-item" data-create="item">+</button> 
+                        <span>{{ localize "CONX.Locations" }}</span>
+                    </h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="table-left-align">{{ localize "CONX.Name" }}</th>
+                                <th>{{ localize "CONX.Qty" }}</th>
+                                <th>{{ localize "CONX.Location" }}</th>
+                                <th><a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each actor.locations as |item id|}}
+                                <tr class="item" data-item-id="{{item._id}}">
+                                    <td>
+                                        <div class="item-name-flex-container">
+                                            <input type="checkbox" class="toggleEquipped" {{checked item.system.equipped}}>
+                                            <div class="item-name">{{item.name}}</div>
+                                        </div>
+                                    </td>
+                                    <td class="table-center-align">{{item.system.qty}}</td>
+                                    <td class="table-center-align">{{item.system.location}}</td>
+                                    <td class="table-center-align"><a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a></td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
 
                 <div class="facilities-table">
                     <h2 class="header-with-button">
@@ -77,7 +111,6 @@
                     </table>
                 </div>
 
-
                 <div class="staff-table">
                     <h2 class="header-with-button">
                         <button type="button" class="create-item" data-create="item">+</button> 
@@ -110,12 +143,10 @@
                     </table>
                 </div>
 
-
             </div>
 
             {{!-- Equipment Tab --}}
             <div class="tab equipment" data-group="primary" data-tab="equipment">
-
 
                 <div class="weaponery-table">
                     <h2 class="header-with-button">
@@ -147,8 +178,8 @@
                             {{/each}}
                         </tbody>
                     </table>
-                </div>
 
+                </div>
 
                 <div class="gear-table">
                     <h2 class="header-with-button">
@@ -182,40 +213,6 @@
                     </table>
                 </div>
 
-
-                <div class="espionage-table">
-                    <h2 class="header-with-button">
-                        <button type="button" class="create-item" data-create="item">+</button> 
-                        <span>{{ localize "CONX.Espionage" }}</span>
-                    </h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th class="table-left-align">{{ localize "CONX.Name" }}</th>
-                                <th>{{ localize "CONX.Qty" }}</th>
-                                <th>{{ localize "CONX.Location" }}</th>
-                                <th><a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{#each actor.espionage as |item id|}}
-                                <tr class="item" data-item-id="{{item._id}}">
-                                    <td>
-                                        <div class="item-name-flex-container">
-                                            <input type="checkbox" class="toggleEquipped" {{checked item.system.equipped}}>
-                                            <div class="item-name">{{item.name}}</div>
-                                        </div>
-                                    </td>
-                                    <td class="table-center-align">{{item.system.qty}}</td>
-                                    <td class="table-center-align">{{item.system.location}}</td>
-                                    <td class="table-center-align"><a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a></td>
-                                </tr>
-                            {{/each}}
-                        </tbody>
-                    </table>
-                </div>
-
-
                 <div class="vehicles-table">
                     <h2 class="header-with-button">
                         <button type="button" class="create-item" data-create="item">+</button> 
@@ -248,11 +245,15 @@
                     </table>
                 </div>
 
+            </div>
+
+            {{!-- Resources Tab --}}
+            <div class="tab resources" data-group="primary" data-tab="resources">
 
                 <div class="science-table">
                     <h2 class="header-with-button">
                         <button type="button" class="create-item" data-create="item">+</button> 
-                        <span>{{ localize "CONX.Science" }}</span>
+                        <span>{{ localize "CONX.Scientific Resources" }}</span>
                     </h2>
                     <table>
                         <thead>
@@ -281,11 +282,10 @@
                     </table>
                 </div>
 
-
-                <div class="electronics-table">
+                <div class="medical-table">
                     <h2 class="header-with-button">
                         <button type="button" class="create-item" data-create="item">+</button> 
-                        <span>{{ localize "CONX.Electronics" }}</span>
+                        <span>{{ localize "CONX.Medical Resources" }}</span>
                     </h2>
                     <table>
                         <thead>
@@ -297,7 +297,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{#each actor.electronics as |item id|}}
+                            {{#each actor.medical as |item id|}}
                                 <tr class="item" data-item-id="{{item._id}}">
                                     <td>
                                         <div class="item-name-flex-container">
@@ -314,9 +314,39 @@
                     </table>
                 </div>
 
+                <div class="restricted-table">
+                    <h2 class="header-with-button">
+                        <button type="button" class="create-item" data-create="item">+</button> 
+                        <span>{{ localize "CONX.Restricted Resources" }}</span>
+                    </h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="table-left-align">{{ localize "CONX.Name" }}</th>
+                                <th>{{ localize "CONX.Qty" }}</th>
+                                <th>{{ localize "CONX.Location" }}</th>
+                                <th><a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each actor.restricted as |item id|}}
+                                <tr class="item" data-item-id="{{item._id}}">
+                                    <td>
+                                        <div class="item-name-flex-container">
+                                            <input type="checkbox" class="toggleEquipped" {{checked item.system.equipped}}>
+                                            <div class="item-name">{{item.name}}</div>
+                                        </div>
+                                    </td>
+                                    <td class="table-center-align">{{item.system.qty}}</td>
+                                    <td class="table-center-align">{{item.system.location}}</td>
+                                    <td class="table-center-align"><a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a></td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
 
             </div>
-
 
         </section>
     </div>

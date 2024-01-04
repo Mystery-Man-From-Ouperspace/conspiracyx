@@ -23,10 +23,6 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>{{ localize "CONX.Type" }}</th>
-                            <td><input type="text" name="system.type" value="{{item.system.type}}"></td>
-                        </tr>
-                        <tr>
                             <th>{{ localize "CONX.Quantity" }}</th>
                             <td><input type="text" name="system.qty" value="{{item.system.qty}}"></td>
                         </tr>
@@ -34,12 +30,12 @@
                             <th>{{ localize "CONX.Location" }}</th>
                             <td><input type="text" name="system.location" value="{{item.system.location}}"></td>
                         </tr>
+                        <tr>
+                            <th>{{ localize "CONX.Cost" }}</th>
+                            <td><input type="number" name="system.cost" value="{{item.system.cost}}"></td>
+                        </tr>
                     </tbody>
-                    <tr>
-                        <th>{{ localize "CONX.Cost" }}</th>
-                        <td><input type="number" name="system.cost" value="{{item.system.cost}}"></td>
-                    </tr>
-            </table>
+                </table>
             </div>
             <div class="item-description-sidebar">
                 <h2 class="item-desc">{{ localize "CONX.Description" }}</h2>

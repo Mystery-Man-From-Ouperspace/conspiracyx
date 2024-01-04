@@ -160,14 +160,16 @@
   "CONX.Checking this option enables Light Mode, stripping away the dark mode aesthetics from the sheets.":
             "Checking this option enables Light Mode, stripping away the dark mode aesthetics from the sheets.",
 
+  "CONX.Locations": "Locations",
   "CONX.Facilities": "Facilities",
   "CONX.Staff": "Staff",
   "CONX.Weaponery": "Weaponery",
   "CONX.Gear": "Gear",
-  "CONX.Espionage": "Espionage",
   "CONX.Vehicles": "Vehicles",
-  "CONX.Science": "Science",
-  "CONX.Electronics": "Electronics",
+  "CONX.Resources": "Resources",
+  "CONX.Scientific Resources": "Science Resources",
+  "CONX.Medical Resources": "Medical Resources",
+  "CONX.Restricted Resources": "Restricted Resources",
 
   "CONX.Location": "Location",
 
