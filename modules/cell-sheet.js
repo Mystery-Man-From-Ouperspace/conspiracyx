@@ -5,7 +5,7 @@ export class conspiracyxCellSheet extends ActorSheet {
         return mergeObject(super.defaultOptions, {
           classes: ["conspiracyx", "sheet", "actor", `${game.settings.get("conspiracyx", "light-mode") ? "light-mode" : ""}`],
           template: "systems/conspiracyx/templates/cell-sheet.html",
-            width: 700,
+            width: 800,
             height: 780,
             tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "core"}],
             dragDrop: [{dragSelector: [
@@ -48,15 +48,6 @@ export class conspiracyxCellSheet extends ActorSheet {
       // Iterate through items and assign to containers
       for (let i of sheetData.items) {
           switch (i.type) {
-/*            case "item": 
-                if (i.system.equipped) {equippedItem.push(i)}
-                else {item.push(i)}
-                break
-            
-            case "weapon": 
-                weapon.push(i)
-                break */
-
             case "locations":
                 locations.push(i)
                 break
@@ -110,6 +101,7 @@ export class conspiracyxCellSheet extends ActorSheet {
       }
 
       // Assign and return items
+      actorData.locations = locations
       actorData.facilities = facilities
       actorData.staff = staff
       actorData.weaponery = weaponery
@@ -162,7 +154,7 @@ export class conspiracyxCellSheet extends ActorSheet {
             name: game.i18n.localize(`CONX.New`)+` `+game.i18n.localize(`CONX.${element.dataset.create}`),
             type: element.dataset.create,
             cost: 0,
-            location: "A",
+            location: "1",
             qty: 1
         }
         return Item.create(itemData, {parent: this.actor})

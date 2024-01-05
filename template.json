@@ -1,6 +1,7 @@
 {
     "Actor": {
         "types": ["character", "cell", "vehicle"],
+        "htmlFields": ["biography"],
         "templates": {
             "attributes": {
                 "characterType": 0,
@@ -256,103 +257,47 @@
                 "eyes": "",
                 "biography": "",
                 "contacts": ""
+            },
+            "cell_member": {
+                "show": false,
+                "name": "",
+                "lvl": 0,
+                "RP": 0,
+                "mil": false,
+                "int": false,
+                "sci": false,
+                "crm": false,
+                "law": false,
+                "med": false,
+                "par": false,
+                "civ": false
             }
         },
         "character": {
             "templates": ["attributes", "bio"]
         },
         "cell": {
-            "templates": ["bio"],
+            "biography": "",
             "leader": {
-                "name": "",
-                "level": 0,
-                "RPs": 0,
-                "Arm": false,
-                "Int": false,
-                "Sci": false,
-                "Crm": false,
-                "Law": false,
-                "Med": false,
-                "Par": false,
-                "Civ": false
+                "templates" : ["cell_member"]
             },
             "member1" : {
-                "name": "",
-                "level": 0,
-                "RPs": 0,
-                "Arm": false,
-                "Int": false,
-                "Sci": false,
-                "Crm": false,
-                "Law": false,
-                "Med": false,
-                "Par": false,
-                "Civ": false
+                "templates" : ["cell_member"]
             },
             "member2" : {
-                "name": "",
-                "level": 0,
-                "RPs": 0,
-                "Arm": false,
-                "Int": false,
-                "Sci": false,
-                "Crm": false,
-                "Law": false,
-                "Med": false,
-                "Par": false,
-                "Civ": false
+                "templates" : ["cell_member"]
             },
             "member3" : {
-                "name": "",
-                "level": 0,
-                "RPs": 0,
-                "Arm": false,
-                "Int": false,
-                "Sci": false,
-                "Crm": false,
-                "Law": false,
-                "Med": false,
-                "Par": false,
-                "Civ": false
+                "templates" : ["cell_member"]
             },
             "member4" : {
-                "name": "",
-                "level": 0,
-                "RPs": 0,
-                "Arm": false,
-                "Int": false,
-                "Sci": false,
-                "Crm": false,
-                "Law": false,
-                "Med": false,
-                "Par": false,
-                "Civ": false
+                "templates" : ["cell_member"]
             },
             "member5" : {
-                "name": "",
-                "level": 0,
-                "RPs": 0,
-                "Arm": false,
-                "Int": false,
-                "Sci": false,
-                "Crm": false,
-                "Law": false,
-                "Med": false,
-                "Par": false,
-                "Civ": false
+                "templates" : ["cell_member"]
             },
             "member6" : {
-                "name": "",
-                "level": 0,
-                "RPs": 0,
-                "Arm": false,
-                "Int": false,
-                "Sci": false,
-                "Crm": false,
-                "Law": false,
-                "Med": false,
-                "Par": false,
-                "Civ": false
+                "templates" : ["cell_member"]
             },
             "locationA": {
                 "name": ""
@@ -382,7 +327,8 @@
         }
     },
     "Item": {
-        "types": ["quality", "drawback", "skill", "power", "weapon", "item", "aspect", "facilities", "staff", "weaponery", "gear", "espionage", "vehicles", "science", "electronics"],
+        "types": ["quality", "drawback", "skill", "power", "weapon", "item", "locations", "facilities", "staff", "weaponery", "gear", "vehicles", "science", "medical", "restricted"],
+        "htmlFields": ["description"],
         "templates": {
             "weapon": {
                 "range": "",
@@ -423,7 +369,6 @@
                 "cost": 0,
                 "availability": "",
                 "availabilityOptions": ["Common", "Uncommon", "Rare"],
-                "locationOptions": ["Borrowed", "LocationA", "LocationB", "LocationC", "LocationD"],
                 "description": "",
                 "resource_bonus": {
                     "hp": 0,
@@ -432,10 +377,20 @@
                     "essence": 0,
                     "initiative": 0
                 }
+            },
+            "cell_data": {
+                "rp": "",
+                "space": "",
+                "prerequisite": "",
+                "qty": 1,
+                "locationOptions": ["Borrowed", "LocationA", "LocationB", "LocationC", "LocationD"],
+                "location": "1"
             }
         },
         "quality": {
-            "templates": ["common"]
+            "templates": ["common"],
+            "types": ["Quality", "Pulling Strings"],
+            "type": ""
         },
         "drawback": {
             "templates": ["common"]
@@ -446,7 +401,9 @@
         },
         "power": {
             "templates": ["common"],
-            "level": 0
+            "level": 0,
+            "types": ["Psychic Ability", "Ritual"],
+            "type": ""
         },
         "weapon": {
             "templates": ["common", "weapon"]
@@ -458,61 +415,37 @@
             "qty": 1
         },
         "locations": {
-          "templates": ["common"],
-          "equipped": false,
-          "location": "1",
-          "qty": 1
-
+          "templates": ["common", "cell_data"]
         },
-          "facilities": {
-            "templates": ["common"],
-            "equipped": false,
-            "location": "1",
-            "qty": 1
+        "facilities": {
+            "templates": ["common", "cell_data"]
         },
         "staff": {
-            "templates": ["common"],
-            "equipped": false,
-            "location": "1",
-            "qty": 1
+            "templates": ["common", "cell_data"]
         },
         "weaponery": {
-            "templates": ["common"],
-            "equipped": false,
-            "type": "",
-            "location": "1",
-            "qty": 1
+            "templates": ["common", "cell_data"],
+            "types": ["Weapons", "Explosives", "Ammunition", "CombatAccessories"],
+            "type": ""
         },
         "gear": {
-            "templates": ["common"],
-            "equipped": false,
-            "type": "",
-            "location": "1",
-            "qty": 1
+            "templates": ["common", "cell_data"],
+            "types": ["Surveillance", "IntrusionEquipment", "Electronics", "Software", "PersonnelEquipment"],
+            "type": ""
         },
         "vehicles": {
-            "templates": ["common"],
-            "equipped": false,
-            "location": "1",
-            "qty": 1
+            "templates": ["common", "cell_data"],
+            "types": ["Vehicles", "VehicleAccessories"],
+            "type": ""
         },
         "science": {
-            "templates": ["common"],
-            "equipped": false,
-            "location": "1",
-            "qty": 1
+            "templates": ["common", "cell_data"]
         },
         "medical": {
-            "templates": ["common"],
-            "equipped": false,
-            "location": "1",
-            "qty": 1
+            "templates": ["common", "cell_data"]
         },
         "restricted": {
-            "templates": ["common"],
-            "equipped": false,
-            "location": "1",
-            "qty": 1
+            "templates": ["common", "cell_data"]
         }
     }
 }

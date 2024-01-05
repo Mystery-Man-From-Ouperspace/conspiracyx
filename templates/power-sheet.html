@@ -4,7 +4,7 @@
     <div class="item-sheet-header">
         <h1 class="item-header-container">
             <img class="item-img" src="{{item.img}}" data-edit="img">
-            <input type="text" name="name" value="{{item.name}}" placeholder="Name">
+            <input type="text" name="name" value="{{item.name}}" placeholder="{{ localize 'Name' }}">
         </h1>
     </div>
 
@@ -14,6 +14,18 @@
                 <h2>{{ localize "CONX.Attributes" }}</h2>
                 <table>
                     <tbody>
+                        <tr>
+                            <th>{{ localize "CONX.Type" }}</th>
+                            <td>
+                            <select id="typeSelect" name="system.type" data-type="String">
+                                {{#select item.system.type}}
+                                    {{#each item.system.types as |types key|}}
+                                        <option value="{{key}}">{{ localize (concat 'CONX.' types) }}</option>
+                                    {{/each}}
+                                {{/select}}
+                            </select>
+                            </td>
+                        </tr>
                         <tr>
                             <th>{{ localize "CONX.Level" }}</th>
                             <td><input type="number" name="system.level" value="{{item.system.level}}"></td>

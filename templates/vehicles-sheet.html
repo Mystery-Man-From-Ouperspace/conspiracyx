@@ -15,16 +15,28 @@
                 <table>
                     <tbody>
                         <tr>
+                            <th>{{ localize "CONX.Type" }}</th>
+                            <td>
+                            <select id="typeSelect" name="system.type" data-type="String">
+                                {{#select item.system.type}}
+                                    {{#each item.system.types as |types key|}}
+                                        <option value="{{key}}">{{ localize (concat 'CONX.' types) }}</option>
+                                    {{/each}}
+                                {{/select}}
+                            </select>
+                            </td>
+                        </tr>
+                        <tr>
                             <th>{{ localize "CONX.RP" }}</th>
                             <td><input type="text" name="system.rp" value="{{item.system.rp}}"></td>
                         </tr>
                         <tr>
-                            <th>{{ localize "CONX.Space" }}</th>
-                            <td><input type="text" name="system.space" value="{{item.system.space}}"></td>
-                        </tr>
-                        <tr>
                             <th>{{ localize "CONX.Prerequisite" }}</th>
                             <td><input type="text" name="system.prerequisite" value="{{item.system.prerequisite}}"></td>
+                        </tr>
+                        <tr>
+                            <th>{{ localize "CONX.Space" }}</th>
+                            <td><input type="text" name="system.space" value="{{item.system.space}}"></td>
                         </tr>
                         <tr>
                             <th>{{ localize "CONX.Quantity" }}</th>
@@ -47,7 +59,7 @@
                             </td>
                         </tr>
                     </tbody>
-            </table>
+                </table>
             </div>
             <div class="item-description-sidebar">
                 <h2 class="item-desc">{{ localize "CONX.Description" }}</h2>

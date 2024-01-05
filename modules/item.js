@@ -10,14 +10,17 @@ export class conspiracyxItem extends Item {
         // Prepare Data based on item type
         if (itemData && actorData) {
             switch (this.type) {
+                case 'item':
+                    this._prepareItem(actorData, itemData)
+                    break
+
                 case 'quality':
                 case 'drawback':
-                case 'aspect':
                     this._prepareQualityDrawback(actorData, itemData)
                     break
 
                 case 'skill':
-                // case 'power':
+                case 'power':
                     this._prepareSkillPower(actorData, itemData)
                     break
 
@@ -37,6 +40,22 @@ export class conspiracyxItem extends Item {
                     break
             }
         }
+    }
+
+    _prepareItem(actorData, itemData) {
+
+
+
+
+        actorData.descriptionHTML = TextEditor.enrichHTML(itemData.description, {
+          secrets: false,
+          async: true
+        });
+  
+  
+  
+  
+  
     }
 
     _prepareQualityDrawback(actorData, itemData) {

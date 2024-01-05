@@ -68,6 +68,8 @@
 
   "CONX.Equipped": "Equipped",
   "CONX.Quantity": "Quantity",
+  "CONX.RP": "RP",
+  "CONX.Space": "Space",
 
   "CONX.quality": "quality",
   "CONX.drawback": "drawback",
@@ -75,7 +77,15 @@
   "CONX.power": "power",
   "CONX.weapon": "weapon",
   "CONX.item": "item",
-  "CONX.aspect": "aspect",
+  "CONX.locations": "location",
+  "CONX.facilities": "facility",
+  "CONX.staff": "staff",
+  "CONX.weaponery": "weaponery",
+  "CONX.gear": "gear",
+  "CONX.vehicles": "vehicle",
+  "CONX.science": "science resource",
+  "CONX.medical": "medical resource",
+  "CONX.restricted": "restricted resource",
 
   "CONX.New": "New",
 
@@ -163,17 +173,53 @@
   "CONX.Locations": "Locations",
   "CONX.Facilities": "Facilities",
   "CONX.Staff": "Staff",
+
   "CONX.Weaponery": "Weaponery",
   "CONX.Gear": "Gear",
-  "CONX.Vehicles": "Vehicles",
+  "CONX.Vehicles": "Vehicle",
+
   "CONX.Resources": "Resources",
-  "CONX.Scientific Resources": "Science Resources",
+  "CONX.Science Resources": "Sciencific Resources",
   "CONX.Medical Resources": "Medical Resources",
   "CONX.Restricted Resources": "Restricted Resources",
+    
+  "CONX.Explosives": "Explosives",
+  "CONX.Ammunition": "Ammunition",
+  "CONX.CombatAccessories": "Combat Accessory",
+
+  "CONX.Surveillance": "Surveillance",
+  "CONX.IntrusionEquipment": "Intrusion Equip.",
+  "CONX.Electronics": "Electronics",
+  "CONX.software": "Software",
+  "CONX.PersonnelEquipment": "Personnel Equip.",
+
+  "CONX.Vehicles & Accessories": "Vehicles & Aaccessories",
+  "CONX.VehicleAccessories": "Vehicle Acessor.",
 
   "CONX.Location": "Location",
+  "CONX.Type": "Type",
+  "CONX.Prerequisite": "Prerequisite",
 
+  "CONX.Borrowed": "0 -Borrowed",
+  "CONX.LocationA": "1 - Location A",
+  "CONX.LocationB": "2 - Location B",
+  "CONX.LocationC": "3- Location C",
+  "CONX.LocationD": "4 - Location D",
 
+  "CONX.Delete Item": "Delete Item",
+
+  "CONX.Quality": "Quality",
+  "CONX.Pulling Strings": "Pulling Strings",
+  "CONX.Psychic Ability": "Psychic Ability",
+  "CONX.Ritual": "Ritual",
+
+  "CONX.Current AP": "Current AP",
+  "CONX.Lvl": "Lvl",
+  "CONX.Leader": "Leader",
+  "CONX.Member": "Member",
+  "CONX.Cell Members": "Cell Members",
+
+  
   "TYPES": {
     "Actor": {
       "character": "Character",
@@ -187,7 +233,15 @@
       "power": "Power",
       "weapon": "Weapon",
       "item": "Item",
-      "aspect": "Aspect"
+      "locations": "Location",
+      "facilities": "Facility",
+      "staff": "Staff",
+      "weaponery": "Weaponery",
+      "gear": "Gear",
+      "vehicles": "Vehicle",
+      "science": "Science Resource",
+      "medical": "Medical Resource",
+      "restricted": "Restricted Resource"
     }
   }
 }

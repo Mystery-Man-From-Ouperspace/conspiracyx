@@ -572,7 +572,16 @@
  .conspiracyx .qualities-container,
  .conspiracyx .drawbacks-container,
  .conspiracyx .skills-container,
- .conspiracyx .powers-container {
+ .conspiracyx .powers-container,
+ .conspiracyx .locations-table,
+ .conspiracyx .facilities-table,
+ .conspiracyx .staff-table,
+ .conspiracyx .weaponery-table,
+ .conspiracyx .gear-table,
+ .conspiracyx .vehicles-table,
+ .conspiracyx .science-table,
+ .conspiracyx .medical-table,
+ .conspiracyx .restricted-table {
      margin: 10px 0 0 0;
      background: rgba(78, 78, 78, 0.603);
  }
@@ -738,7 +747,16 @@
 .conspiracyx.light-mode .qualities-container,
 .conspiracyx.light-mode .drawbacks-container,
 .conspiracyx.light-mode .skills-container,
-.conspiracyx.light-mode .powers-container {
+.conspiracyx.light-mode .powers-container,
+.conspiracyx.light-mode .locations-table,
+.conspiracyx.light-mode .facilities-table,
+.conspiracyx.light-mode .staff-table,
+.conspiracyx.light-mode .weaponery-table,
+.conspiracyx.light-mode .gear-table,
+.conspiracyx.light-mode .vehicles-table,
+.conspiracyx.light-mode .science-table,
+.conspiracyx.light-mode .medical-table,
+.conspiracyx.light-mode .restricted-table {
     background: rgba(196, 196, 196, 0.603);
 }
 
@@ -797,7 +815,7 @@
 /* concerne l'interface de Foundry */
 
 #logo {
-    content: url("/systems/conspiracyx/images/icons/logo_conspiracy_x_normal.png");
+    content: url("/systems/conspiracyx/images/logo_conspiracy_x_normal.png");
     width: 100px;
     height: 25px;
     margin-left: 9px;
@@ -805,9 +823,25 @@
   }
   
   #pause > img {
-    content: url("/systems/conspiracyx/images/icons/aegis.png");
+    content: url("/systems/conspiracyx/images/aegis.png");
     height: 192px;
     width: 192px;
     top: -45px;
     left: calc(50% - 96px);
+  }
+
+
+
+
+  .conspiracyx .small-input {
+    width: 10%;
+  }
+
+
+  .conspiracyx .influence-logo {
+    width: 20px;
+  }
+
+  .conspiracyx .influence-logo img {
+    border: none;
   }

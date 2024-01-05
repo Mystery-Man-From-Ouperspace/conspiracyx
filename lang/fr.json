@@ -68,6 +68,8 @@
   
   "CONX.Equipped": "Équipé",
   "CONX.Quantity": "Quantité",
+  "CONX.RP": "PR",
+  "CONX.Space": "Espace",
 
   "CONX.quality": "qualité",
   "CONX.drawback": "désavantage",
@@ -75,7 +77,15 @@
   "CONX.power": "pouvoir",
   "CONX.weapon": "arme",
   "CONX.item": "objet",
-  "CONX.aspect": "aspect",
+  "CONX.locations": "local",
+  "CONX.facilities": "installation",
+  "CONX.staff": "personnel",
+  "CONX.weaponery": "armement",
+  "CONX.gear": "matériel",
+  "CONX.vehicles": "véhicule",
+  "CONX.science": "ressource scientifique",
+  "CONX.medical": "ressource médicale",
+  "CONX.restricted": "ressource à accès restreint",
 
   "CONX.New": "Nouv.",
 
@@ -163,15 +173,51 @@
   "CONX.Locations": "Locaux",
   "CONX.Facilities": "Installations",
   "CONX.Staff": "Personnel",
+
   "CONX.Weaponery": "Armement",
   "CONX.Gear": "Matériel",
-  "CONX.Vehicles": "Véhicules",
+  "CONX.Vehicles": "Véhicule",
+
   "CONX.Resources": "Ressources",
-  "CONX.Scientific Resources": "Resources Scientifiques",
+  "CONX.Science Resources": "Resources Scientifiques",
   "CONX.Medical Resources": "Ressources Médicales",
   "CONX.Restricted Resources": "Ressources à Accès Restreint",
 
+  "CONX.Explosives": "Explosifs",
+  "CONX.Ammunition": "Munitions",
+  "CONX.CombatAccessories": "Access. de combat",
+
+  "CONX.Surveillance": "Surveillance",
+  "CONX.IntrusionEquipment": "Équip. d'intrusion",
+  "CONX.Electronics": "Électronique",
+  "CONX.Software": "Logiciel",
+  "CONX.PersonnelEquipment": "Équip. personnel",
+
+  "CONX.Vehicles & Accessories": "Véhicules & Accessoires",
+  "CONX.VehicleAccessories": "Access. de véhicule",
+
   "CONX.Location": "Local",
+  "CONX.Type": "Type",
+  "CONX.Prerequisite": "Prérequis",
+
+  "CONX.Borrowed": "0 - Emprunté",
+  "CONX.LocationA": "1 - Local A",
+  "CONX.LocationB": "2 - Local B",
+  "CONX.LocationC": "3 - Local C",
+  "CONX.LocationD": "4 - Local D",
+
+  "CONX.Delete Item": "Supprimer l'entrée",
+
+  "CONX.Quality": "Qualité",
+  "CONX.Pulling Strings": "Appuis & Ressources",
+  "CONX.Psychic Ability": "Capacité PSI",
+  "CONX.Ritual": "Rituel",
+
+  "CONX.Current AP": "PA courants",
+  "CONX.Lvl": "Niv",
+  "CONX.Leader": "Leader",
+  "CONX.Member": "Membre",
+  "CONX.Cell Members": "Membres de la Cellule",
 
 
 "TYPES": {
@@ -187,7 +233,14 @@
     "power": "Pouvoir",
     "weapon": "Arme",
     "item": "Objet",
-    "aspect": "Aspect"
-  }
+    "locations": "Local",
+    "facilities": "Installation",
+    "staff": "Personnel",
+    "weaponery": "Armement",
+    "gear": "Matériel",
+    "vehicles": "Véhicule",
+    "science": "Ressource scientifique",
+    "medical": "Ressource médicale",
+    "restricted": "Ressource à accès restreint"  }
 }
 }
