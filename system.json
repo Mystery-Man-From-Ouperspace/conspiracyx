@@ -1,9 +1,18 @@
 {
     "name": "conspiracyx",
     "title": "Conspiracy X",
-    "description": "A digital system for playing CONX (Conspiracy X) by Eden Studios",
+    "description": "A digital system for playing CONX (Conspiracy X 2nd Ed.) by Eden Studios",
     "version": "0.0.1",
-    "author": "Mystery Man From Outerspace after DogBoneZone",
+    "authors": [
+      {
+        "name": "Mystery Man From Outerspace",
+        "url": ""
+      },
+      {
+        "name": "after DogBoneZone's AFMBE system",
+        "url": ""
+      }
+    ],
     "esmodules": ["modules/main.js"],
     "styles": ["styles/main.css"],
     "languages": [
@@ -51,8 +60,8 @@
         },
         "flags": {}
       }],
-    "url": "",
-    "background": "/systems/conspiracyx/images/background/zone_51_conspiracy_x.jpg",
+    "url": "https://github.com/Mystery-Man-From-Ouperspace/conspiracyx",
+    "background": "/systems/conspiracyx/images/conx_background/zone_51_conspiracy_x.jpg",
     "manifest": "https://github.com/DogBoneZone/conspiracyx/raw/main/system.json",
     "download": "https://github.com/DogBoneZone/conspiracyx/-/archive/1.27/conspiracyx-1.27.zip",
     "license": "LICENSE.txt"
