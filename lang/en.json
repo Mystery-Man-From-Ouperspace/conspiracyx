@@ -232,8 +232,10 @@
   "CONX.Paranormal": "Paranormal",
   "CONX.Civilian": "Civilian",
 
+  "CONX.Drama Points": "Drama Points",
 
   
+
   "TYPES": {
     "Actor": {
       "character": "Character",

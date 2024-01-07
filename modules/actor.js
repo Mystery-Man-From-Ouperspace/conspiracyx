@@ -33,20 +33,7 @@ export class conspiracyxActor extends Actor {
 
     _prepareCharacterData(actorData) {
       const data = actorData.system
-
-
-
-
-
-      actorData.descriptionHTML = TextEditor.enrichHTML(data.biography, {
-        secrets: false,
-        async: true
-      });
-
-
-
-
-
+    
       // Set Character Point Values
       let chaTypeLabel = data.characterTypes[data.characterType]
       if(chaTypeLabel != undefined) {
@@ -94,18 +81,6 @@ export class conspiracyxActor extends Actor {
     _prepareCreatureData(actorData) {
       const data = actorData.system
 
-
-
-
-
-      actorData.descriptionHTML = TextEditor.enrichHTML(data.biography, {
-        secrets: false,
-        async: true
-
-
-
-
-      }),
       // Set Encumbrance Values
       data.encumbrance.lifting_capacity = this._calculateLiftingCapacity(data)
       data.encumbrance.max = Number((data.encumbrance.lifting_capacity / 2).toFixed(0))
@@ -126,35 +101,11 @@ export class conspiracyxActor extends Actor {
 
     _prepareCellData(actorData) {
       const data = actorData.system
-
-
-
-
-      actorData.descriptionHTML = TextEditor.enrichHTML(data.biography, {
-        secrets: false,
-        async: true
-      });
-
-
-
-
-
+      
     }
 
     _prepareVehicleData(actorData) {
       const data = actorData.system
-
-
-
-
-      actorData.descriptionHTML = TextEditor.enrichHTML(data.biography, {
-        secrets: false,
-        async: true
-      });
-
-
-
-
 
     }
 

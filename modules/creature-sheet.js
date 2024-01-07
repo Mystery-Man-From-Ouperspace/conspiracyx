@@ -17,13 +17,17 @@ export class conspiracyxCreatureSheet extends ActorSheet {
     /* -------------------------------------------- */
     /** @override */
 
-  getData() {
+  async getData() {
     const data = super.getData(); 
     data.isGM = game.user.isGM;
     data.editable = data.options.editable;
     const actorData = data.system;
     let options = 0;
     let user = this.user;
+
+    data.descriptionHTML = await TextEditor.enrichHTML(data.actor.system.biography, {
+        async: false
+      })
 
     this._prepareCharacterItems(data)
 

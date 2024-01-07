@@ -17,7 +17,7 @@ export class conspiracyxActorSheet extends ActorSheet {
     /* -------------------------------------------- */
     /** @override */
 
-  getData() {
+    async getData() {
     const data = super.getData(); 
     data.isGM = game.user.isGM;
     data.editable = data.options.editable;
@@ -25,12 +25,16 @@ export class conspiracyxActorSheet extends ActorSheet {
     let options = 0;
     let user = this.user;
 
+    data.descriptionHTML = await TextEditor.enrichHTML(data.actor.system.biography, {
+        async: false
+    })
+
     this._prepareCharacterItems(data)
 
     return data
-  }
+   }
 
-  _prepareCharacterItems(sheetData) {
+    _prepareCharacterItems(sheetData) {
       const actorData = sheetData.actor
 
       // Initialize Containers

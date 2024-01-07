@@ -18,13 +18,17 @@ export class conspiracyxItemSheet extends ItemSheet {
         return `${path}/${this.item.type}-sheet.html`;
     }
 
-    getData() {
-        const  data = super.getData(); 
+    async getData() {
+        const data = super.getData(); 
         data.dtypes = ["String", "Number", "Boolean"];
         data.isGM = game.user.isGM;
         data.editable = data.options.editable;
         const itemData = data.system;
         data.data = itemData;
+
+        data.descriptionHTML = await TextEditor.enrichHTML(data.item.system.description, {
+            async: false
+          })
 
         return data;
         }

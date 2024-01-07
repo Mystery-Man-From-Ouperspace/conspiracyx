@@ -1,7 +1,6 @@
 {
     "Actor": {
         "types": ["character", "creature", "cell", "vehicle"],
-        "htmlFields": ["biography"],
         "templates": {
             "attributes": {
                 "characterType": 0,
@@ -246,6 +245,10 @@
                     "max": 0,
                     "lifting_capacity": 0,
                     "level": 0
+                },
+                "drama": {
+                    "value": 0,
+                    "max": 0
                 }
             },
             "bio": {
@@ -255,7 +258,7 @@
                 "weight": 0,
                 "hair": "",
                 "eyes": "",
-                "biography": "",
+                "htmlFields": "",
                 "contacts": ""
             },
             "cell_member": {
@@ -317,6 +320,7 @@
             }
         },
         "vehicle": {
+            "biography": "",
             "weight":  0,
             "speed": 0,
             "acceleration": 0,

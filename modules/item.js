@@ -20,7 +20,7 @@ export class conspiracyxItem extends Item {
                     break
 
                 case 'aspect':
-                    this._prepareAspectDrawback(actorData, itemData)
+                    this._prepareAspect(actorData, itemData)
                     break
 
                 case 'skill':
