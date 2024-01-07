@@ -75,6 +75,7 @@
   "CONX.drawback": "désavantage",
   "CONX.skill": "compétence",
   "CONX.power": "pouvoir",
+  "CONX.aspect": "aspect",
   "CONX.weapon": "arme",
   "CONX.item": "objet",
   "CONX.locations": "local",
@@ -98,8 +99,8 @@
   "CONX.Availability": "Disponibilité",
 
   "CONX.Apply modifiers": "Appliquez les modificateurs des Qualités, Désavantages ou Compétences applicables du personnage.",
-  "CONX.Simple Test def": "Test Simple : 2x Attribut",
-  "CONX.Difficult Test def": "Test Difficile : 1x Attribut",
+  "CONX.Simple Test": "Test Simple : 2x Attribut",
+  "CONX.Difficult Test": "Test Difficile : 1x Attribut",
 
   "CONX.All Tests suffer -3 penalty": "Tous les tests souffrent d'une pénalité de -3",
   "CONX.Mental tests suffer a -1 penalty": "Les tests mentaux souffrent d'une pénalité de -1",
@@ -167,7 +168,7 @@
   "CONX.Rule of Ten Re-Roll": "Règle de Dix Relance",
 
   "CONX.Light Mode": "Mode Clair",
-  "CONX.Checking this option enables Light Mode, stripping away the dark mode aesthetics from the sheets.":
+  "CONX.Checking this option enables Light Mode":
             "Cocher cette option active le Mode Clair, supprimant l'esthétique du Mode Sombre des fiches.",
   
   "CONX.Locations": "Locaux",
@@ -219,10 +220,23 @@
   "CONX.Member": "Membre",
   "CONX.Cell Members": "Membres de la Cellule",
 
+  "CONX.Options": "Options",
+  "CONX.Apply modifiers creature": "Appliquez les modificateurs des Compétences & Aspects de la créature.",
+  
+  "CONX.Military": "Armée",
+  "CONX.Intelligence2": "Renseignement",
+  "CONX.Science & Research": "Science & Recherche",
+  "CONX.Criminal": "Pègre",
+  "CONX.Law Enforcement": "Police",
+  "CONX.Media": "Médias",
+  "CONX.Paranormal": "Paranormal",
+  "CONX.Civilian": "Civil",
+
 
 "TYPES": {
   "Actor": {
     "character": "Personnage",
+    "creature": "Créature",
     "cell": "Cellule",
     "vehicle": "Véhicule"
   },
@@ -231,6 +245,7 @@
     "drawback": "Désavantage",
     "skill": "Compétence",
     "power": "Pouvoir",
+    "aspect": "Aspect",
     "weapon": "Arme",
     "item": "Objet",
     "locations": "Local",

@@ -4,6 +4,7 @@ import { conspiracyxActor } from "./actor.js";
 import { conspiracyxItem } from "./item.js";
 import { conspiracyxItemSheet } from "./item-sheet.js";
 import { conspiracyxCellSheet } from "./cell-sheet.js"
+import { conspiracyxCreatureSheet } from "./creature-sheet.js"
 import { conspiracyxVehicleSheet } from "./vehicle-sheet.js"
 
 /* -------------------------------------------- */
@@ -36,6 +37,13 @@ Hooks.once("init", async function() {
           label: "Default CONX Character Sheet"
       })
 
+      Actors.registerSheet("conspiracyx", conspiracyxCreatureSheet, 
+      {
+          types: ["creature"],
+          makeDefault: true,
+          label: "Default CONX Creature Sheet"
+      })
+
       Actors.registerSheet("conspiracyx", conspiracyxCellSheet, 
       {
           types: ["cell"],
@@ -62,7 +70,7 @@ Hooks.once("init", async function() {
 
       game.settings.register("conspiracyx", "light-mode", {
         name: game.i18n.localize("CONX.Light Mode"),
-        hint: game.i18n.localize("CONX.Checking this option enables Light Mode, stripping away the dark mode aesthetics from the sheets."),
+        hint: game.i18n.localize("CONX.Checking this option enables Light Mode"),
         scope: "world",
         config: true,
         default: false,

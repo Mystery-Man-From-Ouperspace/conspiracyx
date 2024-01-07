@@ -75,6 +75,7 @@
   "CONX.drawback": "drawback",
   "CONX.skill": "skill",
   "CONX.power": "power",
+  "CONX.aspect": "aspect",
   "CONX.weapon": "weapon",
   "CONX.item": "item",
   "CONX.locations": "location",
@@ -167,7 +168,7 @@
   "CONX.Rule of Ten Re-Roll": "Rule of Ten Re-Roll",
 
   "CONX.Light Mode": "Light Mode",
-  "CONX.Checking this option enables Light Mode, stripping away the dark mode aesthetics from the sheets.":
+  "CONX.Checking this option enables Light Mode":
             "Checking this option enables Light Mode, stripping away the dark mode aesthetics from the sheets.",
 
   "CONX.Locations": "Locations",
@@ -219,10 +220,24 @@
   "CONX.Member": "Member",
   "CONX.Cell Members": "Cell Members",
 
+  "CONX.Options": "Options",
+  "CONX.Apply modifiers creature": "Apply modifiers from the creature's Skills & Aspects.",
+
+  "CONX.Military": "Military",
+  "CONX.Intelligence2": "Intelligence",
+  "CONX.Science & Research": "Science & Research",
+  "CONX.Criminal": "Criminal",
+  "CONX.Law Enforcement": "Law Enforcement",
+  "CONX.Media": "Media",
+  "CONX.Paranormal": "Paranormal",
+  "CONX.Civilian": "Civilian",
+
+
   
   "TYPES": {
     "Actor": {
       "character": "Character",
+      "creature": "Creature",
       "cell": "Cell",
       "vehicle": "Vehicle"
     },
@@ -230,6 +245,7 @@
       "quality": "Quality",
       "drawback": "Drawback",
       "skill": "Skill",
+      "aspect": "Aspect",
       "power": "Power",
       "weapon": "Weapon",
       "item": "Item",

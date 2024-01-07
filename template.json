@@ -1,6 +1,6 @@
 {
     "Actor": {
-        "types": ["character", "cell", "vehicle"],
+        "types": ["character", "creature", "cell", "vehicle"],
         "htmlFields": ["biography"],
         "templates": {
             "attributes": {
@@ -276,6 +276,10 @@
         "character": {
             "templates": ["attributes", "bio"]
         },
+        "creature": {
+            "templates": ["attributes", "bio"],
+            "power": 0
+        },
         "cell": {
             "biography": "",
             "leader": {
@@ -327,7 +331,7 @@
         }
     },
     "Item": {
-        "types": ["quality", "drawback", "skill", "power", "weapon", "item", "locations", "facilities", "staff", "weaponery", "gear", "vehicles", "science", "medical", "restricted"],
+        "types": ["quality", "drawback", "skill", "power", "aspect", "weapon", "item", "locations", "facilities", "staff", "weaponery", "gear", "vehicles", "science", "medical", "restricted"],
         "htmlFields": ["description"],
         "templates": {
             "weapon": {
@@ -404,6 +408,10 @@
             "level": 0,
             "types": ["Psychic Ability", "Ritual"],
             "type": ""
+        },
+        "aspect": {
+            "templates": ["common"],
+            "power": 0
         },
         "weapon": {
             "templates": ["common", "weapon"]

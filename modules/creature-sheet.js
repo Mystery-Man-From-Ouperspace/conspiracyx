@@ -1,10 +1,10 @@
-export class conspiracyxActorSheet extends ActorSheet {
+export class conspiracyxCreatureSheet extends ActorSheet {
 
     /** @override */
       static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
           classes: ["conspiracyx", "sheet", "actor", `${game.settings.get("conspiracyx", "light-mode") ? "light-mode" : ""}`],
-            width: 800,
+            width: 700,
             height: 820,
             tabs: [{navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "core"}],
             dragDrop: [{dragSelector: [
@@ -37,10 +37,8 @@ export class conspiracyxActorSheet extends ActorSheet {
       const item = [];
       const equippedItem = [];
       const weapon = [];
-      const power = [];
-      const quality = [];
       const skill = [];
-      const drawback = [];
+      const aspect = [];
 
       // Iterate through items and assign to containers
       for (let i of sheetData.items) {
@@ -54,26 +52,18 @@ export class conspiracyxActorSheet extends ActorSheet {
                 weapon.push(i)
                 break
 
-            case "power": 
-                power.push(i)
-                break
-
-            case "quality": 
-                quality.push(i)
-                break
-
             case "skill": 
                 skill.push(i)
                 break
 
-            case "drawback": 
-                drawback.push(i)
+            case "aspect":
+                aspect.push(i)
                 break
           }
       }
 
       // Alphabetically sort all items
-      const itemCats = [item, equippedItem, weapon, power, quality, skill, drawback]
+      const itemCats = [item, equippedItem, weapon, skill, aspect]
       for (let category of itemCats) {
           if (category.length > 1) {
               category.sort((a,b) => {
@@ -89,15 +79,13 @@ export class conspiracyxActorSheet extends ActorSheet {
       actorData.item = item
       actorData.equippedItem = equippedItem
       actorData.weapon = weapon
-      actorData.power = power
-      actorData.quality = quality
       actorData.skill = skill
-      actorData.drawback = drawback
+      actorData.aspect = aspect
   }
 
   get template() {
     const path = "systems/conspiracyx/templates";
-    if (!game.user.isGM && this.actor.limited) return "systems/conspiracyx/templates/limited-character-sheet.html"; 
+    if (!game.user.isGM && this.actor.limited) return "systems/conspiracyx/templates/limited-creature-sheet.html"; 
     return `${path}/${this.actor.type}-sheet.html`;
   }
 
@@ -122,16 +110,8 @@ export class conspiracyxActorSheet extends ActorSheet {
         html.find('.item-name').click( (ev) => {
             const li = ev.currentTarget.closest(".item")
             const item = this.actor.items.get(li.dataset.itemId)
-            //////////////////////////////////////////////////////////////////////////////////////////////
-            // if(this.actor.permission[game.user.data._id] >= 2||game.user.isGM) {item.sheet.render(true)}
-            console.log("ID = ", game.user.id);
-            console.log("ID = ", game.user._id);
-            console.log("Name = ", game.user.name);
-            console.log("Permission ID = ", this.actor.permission[game.user.id]); /// Est-ce correct ?
-            console.log("Permission is GM = ", game.user.isGM);
-            if(this.actor.permission[game.user._id] >= 2||game.user.isGM) {item.sheet.render(true)} /// Est-ce correct ?
-            //////////////////////////////////////////////////////////////////////////////////////////////
-            item.update({"data.value": item.system.value})
+            if(this.actor.permission[game.user._id] >= 2||game.user.isGM) {item.sheet.render(true)}
+            item.update({"system.value": item.system.value})
         })
 
         // Delete Inventory Item
@@ -152,7 +132,6 @@ export class conspiracyxActorSheet extends ActorSheet {
         const element = event.currentTarget
         
         let itemData = {
-            // name: `New ${element.dataset.create}`,
             name: game.i18n.localize(`CONX.New`)+` `+game.i18n.localize(`CONX.${element.dataset.create}`),
             type: element.dataset.create,
             cost: 0,
@@ -162,30 +141,13 @@ export class conspiracyxActorSheet extends ActorSheet {
     }
 
     _createCharacterPointDivs() {
-        let actorData = this.actor.system
-        let attributesDiv = document.createElement('div')
-        let qualityDiv = document.createElement('div')
-        let drawbackDiv = document.createElement('div')
-        let skillDiv = document.createElement('div')
         let powerDiv = document.createElement('div')
-        let characterTypePath = actorData.characterTypes[actorData.characterType]
+        let characterTypePath = this.actor.system.characterTypes[this.actor.system.characterType]
 
         // Construct and assign div elements to the headers
         if(characterTypePath != undefined) {
-            attributesDiv.innerHTML = `- [${actorData.characterTypeValues[characterTypePath].attributePoints.value} / ${actorData.characterTypeValues[characterTypePath].attributePoints.max}]`
-            this.form.querySelector('#attributes-header').append(attributesDiv)
-
-            qualityDiv.innerHTML = `- [${actorData.characterTypeValues[characterTypePath].qualityPoints.value} / ${actorData.characterTypeValues[characterTypePath].qualityPoints.max}]`
-            this.form.querySelector('#quality-header').append(qualityDiv)
-
-            drawbackDiv.innerHTML = `- [${actorData.characterTypeValues[characterTypePath].drawbackPoints.value} / ${actorData.characterTypeValues[characterTypePath].drawbackPoints.max}]`
-            this.form.querySelector('#drawback-header').append(drawbackDiv)
-
-            skillDiv.innerHTML = `- [${actorData.characterTypeValues[characterTypePath].skillPoints.value} / ${actorData.characterTypeValues[characterTypePath].skillPoints.max}]`
-            this.form.querySelector('#skill-header').append(skillDiv)
-
-            powerDiv.innerHTML = `- [${actorData.characterTypeValues[characterTypePath].metaphysicsPoints.value} / ${actorData.characterTypeValues[characterTypePath].metaphysicsPoints.max}]`
-            this.form.querySelector('#power-header').append(powerDiv)
+            powerDiv.innerHTML = `- [${this.actor.system.power}]`
+            this.form.querySelector('#aspect-header').append(powerDiv)
         }
     }
 
@@ -193,7 +155,6 @@ export class conspiracyxActorSheet extends ActorSheet {
         event.preventDefault()
         let element = event.currentTarget
         let attributeLabel = element.dataset.attributeName
-        let actorData = this.actor.system
 
         // Create options for Qualities/Drawbacks/Skills
         let skillOptions = []
@@ -202,23 +163,12 @@ export class conspiracyxActorSheet extends ActorSheet {
             skillOptions.push(option)
         }
 
-        let qualityOptions = []
-        for (let quality of this.actor.items.filter(item => item.type === 'quality')) {
-            let option = `<option value="${quality.id}">${quality.name} ${quality.system.cost}</option>`
-            qualityOptions.push(option)
+        let aspectOptions = []
+        for (let aspect of this.actor.items.filter(item => item.type === 'aspect')) {
+            let option = `<option value="${aspect.id}">${aspect.name} ${aspect.system.power}</option>`
+            aspectOptions.push(option)
         }
 
-        let drawbackOptions = []
-        for (let drawback of this.actor.items.filter(item => item.type === 'drawback')) {
-            let option = `<option value="${drawback.id}">${drawback.name} ${drawback.system.cost}</option>`
-            drawbackOptions.push(option)
-        }
-
-        // Create penalty tags from Resource Loss Status
-        let penaltyTags = []
-        if (actorData.endurance_points.loss_toggle) {penaltyTags.push(`<div>`+game.i18n.localize(`CONX.Endurance Loss`)+` ${actorData.endurance_points.loss_penalty}</div>`)}
-        if (actorData.essence.loss_toggle) {penaltyTags.push(`<div>`+game.i18n.localize(`CONX.Essence Loss`)+` ${actorData.essence.loss_penalty}</div>`)}
-        
         // Create Classes for Dialog Box
         let mode = game.settings.get("conspiracyx", "light-mode") ? "light-mode" : ""
         let dialogOptions = {classes: ["dialog", "conspiracyx", mode]}
@@ -227,21 +177,17 @@ export class conspiracyxActorSheet extends ActorSheet {
         let d = new Dialog({
             title: game.i18n.localize('CONX.Attribute Roll'),
             content: `<div class="conspiracyx-dialog-menu">
-                            <h2>`+game.i18n.localize(`CONX.${attributeLabel}`)+` `+game.i18n.localize("CONX.Roll")+`</h2>
+            <h2>`+game.i18n.localize(`CONX.${attributeLabel}`)+` `+game.i18n.localize("CONX.Roll")+`</h2>
 
                             <div class="conspiracyx-dialog-menu-text-box">
                                 <div>
-                                    <p>`+game.i18n.localize("CONX.Apply modifiers")+`</p>
+                                    <p>`+game.i18n.localize("CONX.Apply modifiers creature")+`</p>
                                     
                                     <ul>
                                         <li>`+game.i18n.localize("CONX.Simple Test")+`</li>
                                         <li>`+game.i18n.localize("CONX.Difficult Test")+`</li>
                                     </ul>
                                 </div>
-                            </div>
-
-                            <div class="conspiracyx-tags-flex-container">
-                                ${penaltyTags.join('')}
                             </div>
 
 
@@ -270,20 +216,11 @@ export class conspiracyxActorSheet extends ActorSheet {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="table-bold-text">`+game.i18n.localize("CONX.Qualities")+`</td>
+                                        <td class="table-bold-text">`+game.i18n.localize("CONX.Aspects")+`</td>
                                         <td class="table-center-align">
-                                            <select id="qualitySelect" name="qualities">
+                                            <select id="aspectSelect" name="aspects">
                                                 <option value="None">`+game.i18n.localize("CONX.None")+`</option>
-                                                ${qualityOptions.join('')}
-                                            </select>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-bold-text">`+game.i18n.localize("CONX.Drawbacks")+`</td>
-                                        <td class="table-center-align">
-                                            <select id="drawbackSelect" name="drawbacks">
-                                                <option value="None">`+game.i18n.localize("CONX.None")+`</option>
-                                                ${drawbackOptions.join('')}
+                                                ${aspectOptions.join('')}
                                             </select>
                                         </td>
                                     </tr>
@@ -302,18 +239,15 @@ export class conspiracyxActorSheet extends ActorSheet {
                         let attributeTestSelect = html[0].querySelector('#attributeTestSelect').value
                         let userInputModifier = Number(html[0].querySelector('#inputModifier').value)
                         let selectedSkill = this.actor.getEmbeddedDocument("Item", html[0].querySelector('#skillSelect').value)
-                        let selectedQuality = this.actor.getEmbeddedDocument("Item", html[0].querySelector('#qualitySelect').value)
-                        let selectedDrawback = this.actor.getEmbeddedDocument("Item", html[0].querySelector('#drawbackSelect').value)
+                        let selectedAspect = this.actor.getEmbeddedDocument("Item", html[0].querySelector('#aspectSelect').value)
 
                         // Set values for options
-                        let attributeValue = attributeTestSelect === game.i18n.localize("CONX.Simple") ? actorData[attributeLabel.toLowerCase()].value * 2 : actorData[attributeLabel.toLowerCase()].value
+                        let attributeValue = attributeTestSelect === game.i18n.localize("CONX.Simple") ? this.actor.system[attributeLabel.toLowerCase()].value * 2 : this.actor.system[attributeLabel.toLowerCase()].value
                         let skillValue = selectedSkill != undefined ? selectedSkill.system.level : 0
-                        let qualityValue = selectedQuality != undefined ? selectedQuality.system.cost : 0
-                        let drawbackValue = selectedDrawback != undefined ? selectedDrawback.system.cost : 0
-                        let statusPenalties = actorData.endurance_points.loss_penalty + actorData.essence.loss_penalty
+                        let aspectValue = selectedAspect != undefined ? selectedAspect.system.power : 0
 
                         // Calculate total modifier to roll
-                        let rollMod = (attributeValue + skillValue + qualityValue + userInputModifier) - drawbackValue + statusPenalties
+                        let rollMod = (attributeValue + skillValue + aspectValue + userInputModifier)
 
                         // Roll Dice
                         let roll = new Roll('1d10')
@@ -325,10 +259,9 @@ export class conspiracyxActorSheet extends ActorSheet {
                         // Create Chat Message Content
                         let tags = [`<div>`+game.i18n.localize(`CONX.${attributeTestSelect}`)+` `+game.i18n.localize("CONX.Test")+`</div>`]
                         let ruleOfDiv = ``
-                        if (userInputModifier != 0) {tags.push(`<div>`+game.i18n.localize("CONX.User Modifier")+` ${userInputModifier >= 0 ? "+" : ''}${userInputModifier}</div>`)}
+                        if (userInputModifier != 0) {tags.push(`<div>`+game.i18n.localize("CONX.User Modifier")+` ${userInputModifier >= 0 ? '+' : ''}${userInputModifier}</div>`)}
                         if (selectedSkill != undefined) {tags.push(`<div>${selectedSkill.name} ${selectedSkill.system.level >= 0 ? '+' : ''}${selectedSkill.system.level}</div>`)}
-                        if (selectedQuality != undefined) {tags.push(`<div>${selectedQuality.name} ${selectedQuality.system.cost >= 0 ? '+' : ''}${selectedQuality.system.cost}</div>`)}
-                        if (selectedDrawback != undefined) {tags.push(`<div>${selectedDrawback.name} ${selectedQuality.system.cost >= 0 ? '-' : '+'}${Math.abs(selectedDrawback.system.cost)}</div>`)}
+                        if (selectedAspect != undefined) {tags.push(`<div>${selectedAspect.name} ${selectedAspect.system.power >= 0 ? '+' : ''}${selectedAspect.system.power}</div>`)}
 
                         if (roll.result == 10) {
                             ruleOfDiv = `<h2 class="rule-of-chat-text">`+game.i18n.localize("CONX.Rule of 10!")+`</h2>
@@ -342,7 +275,7 @@ export class conspiracyxActorSheet extends ActorSheet {
                         }
 
                         let chatContent = `<form>
-                                                <h2>`+game.i18n.localize(`CONX.${attributeLabel}`)+` `+game.i18n.localize("CONX.Roll")+` [${actorData[attributeLabel.toLowerCase()].value}]</h2>
+                                                <h2>`+game.i18n.localize(`CONX.${attributeLabel}`)+` `+game.i18n.localize("CONX.Roll")+` [${this.actor.system[attributeLabel.toLowerCase()].value}]</h2>
 
                                                 <table class="conspiracyx-chat-roll-table">
                                                     <thead>
@@ -370,7 +303,7 @@ export class conspiracyxActorSheet extends ActorSheet {
                             type: CONST.CHAT_MESSAGE_TYPES.ROLL,
                             user: game.user.id,
                             speaker: ChatMessage.getSpeaker(),
-                            flavor: `<div class="conspiracyx-tags-flex-container">${tags.join('')} ${penaltyTags.join('')}</div>`,
+                            flavor: `<div class="conspiracyx-tags-flex-container">${tags.join('')}</div>`,
                             content: chatContent,
                             roll: roll
                           })
@@ -394,7 +327,7 @@ export class conspiracyxActorSheet extends ActorSheet {
         let mode = game.settings.get("conspiracyx", "light-mode") ? "light-mode" : ""
         let dialogOptions = {classes: ["dialog", "conspiracyx", mode]}
 
-        // Create Dialog Box
+        // Create Dialog Prompt
         let d = new Dialog({
             title: game.i18n.localize('CONX.Weapon Roll'),
             content: `<div class="conspiracyx-dialog-menu">
@@ -448,7 +381,7 @@ export class conspiracyxActorSheet extends ActorSheet {
 
                         let tags = [`<div>`+game.i18n.localize("CONX.Damage Roll")+`</div>`]
                         if (firingMode != game.i18n.localize("CONX.None/Melee")) {tags.push(`<div>${firingMode}: ${shotNumber}</div>`)}
-                        if (weapon.system.damage_types[weapon.system.damage_type] != 'None') {tags.push(`<div>`+game.i18n.localize(`CONX.${weapon.system.damage_types[weapon.system.damage_type]}`)+`</div>`)}
+                        if (weapon.system.damage_types[weapon.system.damage_type] != 'None') {tags.push(`<div>${weapon.system.damage_types[weapon.system.damage_type]}</div>`)}
 
                         // Reduce Fired shots from current load chamber
                         if (shotNumber > 0) {
@@ -458,7 +391,7 @@ export class conspiracyxActorSheet extends ActorSheet {
                                     break
 
                                 case false: 
-                                    return ui.notifications.info(game.i18n.localize("CONX.You do not have enough ammo loaded to fire")+` ${shotNumber} `+game.i18n.localize("CONX.rounds!"))
+                                    return ui.notifications.info(`You do not have enough ammo loaded to fire ${shotNumber} rounds!`)
                             }
                         }
 
@@ -508,8 +441,6 @@ export class conspiracyxActorSheet extends ActorSheet {
         let roll = new Roll(equippedItem.system.armor_value)
         roll.roll({async: false})
 
-        let tags = [`<div>`+game.i18n.localize("CONX.Armor Roll")+`</div>`]
-
         // Create Chat Content
         let chatContent = `<div>
                                 <h2>${equippedItem.name}</h2>
@@ -534,7 +465,6 @@ export class conspiracyxActorSheet extends ActorSheet {
             type: CONST.CHAT_MESSAGE_TYPES.ROLL,
             user: game.user.id,
             speaker: ChatMessage.getSpeaker(),
-            flavor: `<div class="conspiracyx-tags-flex-container-item">${tags.join('')}</div>`,
             content: chatContent,
             roll: roll
           })
@@ -558,65 +488,18 @@ export class conspiracyxActorSheet extends ActorSheet {
 
     _onResetResource(event) {
         event.preventDefault()
-        let actorData = this.actor.system
         let element = event.currentTarget
         let dataPath = `data.${element.dataset.resource}.value`
 
-        this.actor.update({[dataPath]: actorData[element.dataset.resource].max})
+        this.actor.update({[dataPath]: this.actor.system[element.dataset.resource].max})
     }
 
     _createStatusTags() {
         let tagContainer = this.form.querySelector('.tags-flex-container')
         let encTag = document.createElement('div')
-        let enduranceTag = document.createElement('div')
-        let essenceTag = document.createElement('div')
-        let injuryTag = document.createElement('div')
-        let actorData = this.actor.system
-
-        // Create Essence Tag and & Append
-        if (actorData.essence.value <= 1) {
-            essenceTag.innerHTML = `<div>`+game.i18n.localize("CONX.Hopeless")+`</div>`
-            essenceTag.title = game.i18n.localize('CONX.All Tests suffer -3 penalty')
-            essenceTag.classList.add('tag')
-            tagContainer.append(essenceTag)
-        }
-        else if (actorData.essence.value <= (actorData.essence.max / 2)) {
-            essenceTag.innerHTML = `<div>`+game.i18n.localize("CONX.Forlorn")+`</div>`
-            essenceTag.title = game.i18n.localize('CONX.Mental tests suffer a -1 penalty')
-            essenceTag.classList.add('tag')
-            tagContainer.append(essenceTag)
-        }
-
-        // Create Endurance Tag and & Append
-        if (actorData.endurance_points.value <= 5) {
-            enduranceTag.innerHTML = `<div>`+game.i18n.localize("CONX.Exhausted")+`</div>`
-            enduranceTag.title = game.i18n.localize('CONX.All Tests suffer -2 penalty')
-            enduranceTag.classList.add('tag')
-            tagContainer.append(enduranceTag)
-        }
-
-        // Create Injury Tag and & Append
-        if (actorData.hp.value <= -10) {
-            injuryTag.innerHTML = `<div>`+game.i18n.localize("CONX.Dying")+`</div>`
-            injuryTag.classList.add('tag')
-            injuryTag.title = game.i18n.localize('CONX.Survival Test required to avoid instant death')
-            tagContainer.append(injuryTag)
-        }
-        else if (actorData.hp.value <= 0) {
-            injuryTag.innerHTML = `<div>`+game.i18n.localize("CONX.Semi-Conscious")+`</div>`
-            injuryTag.classList.add('tag')
-            injuryTag.title = game.i18n.localize('CONX.Willpower test required to regain consciousness, penalized by the number their HP is below 0')
-            tagContainer.append(injuryTag)
-        }
-        else if (actorData.hp.value <= 5) {
-            injuryTag.innerHTML = `<div>`+game.i18n.localize("CONX.Severely Injured")+`</div>`
-            injuryTag.classList.add('tag')
-            injuryTag.title = game.i18n.localize('CONX.Most actions suffer -1 through -5 penalty')
-            tagContainer.append(injuryTag)
-        }
 
         // Create Encumbrance Tags & Append
-        switch (actorData.encumbrance.level) {
+        switch (this.actor.system.encumbrance.level) {
             case 1:
                 encTag.innerHTML = `<div>`+game.i18n.localize("CONX.Lightly Encumbered")+`</div>`
                 encTag.classList.add('tag')

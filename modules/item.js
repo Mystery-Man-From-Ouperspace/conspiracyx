@@ -19,6 +19,10 @@ export class conspiracyxItem extends Item {
                     this._prepareQualityDrawback(actorData, itemData)
                     break
 
+                case 'aspect':
+                    this._prepareAspectDrawback(actorData, itemData)
+                    break
+
                 case 'skill':
                 case 'power':
                     this._prepareSkillPower(actorData, itemData)
@@ -59,6 +63,22 @@ export class conspiracyxItem extends Item {
     }
 
     _prepareQualityDrawback(actorData, itemData) {
+
+
+
+
+        actorData.descriptionHTML = TextEditor.enrichHTML(itemData.description, {
+          secrets: false,
+          async: true
+        });
+  
+  
+  
+  
+  
+    }
+
+    _prepareAspect(actorData, itemData) {
 
 
 
