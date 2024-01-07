@@ -39,6 +39,7 @@ export class conspiracyxVehicleSheet extends ActorSheet {
       const actorData = sheetData.actor
 
       // Initialize Containers
+      const vehicles = [];
       const item = [];
       const equippedItem = [];
       const weapon = [];
@@ -50,6 +51,10 @@ export class conspiracyxVehicleSheet extends ActorSheet {
                 if (i.system.equipped) {equippedItem.push(i)}
                 else {item.push(i)}
                 break
+
+                case "vehicles": 
+                vehicles.push(i)
+                break
             
             case "weapon": 
                 weapon.push(i)
@@ -58,7 +63,7 @@ export class conspiracyxVehicleSheet extends ActorSheet {
       }
 
       // Alphabetically sort all items
-      const itemCats = [item, equippedItem, weapon]
+      const itemCats = [vehicles, item, equippedItem, weapon]
       for (let category of itemCats) {
           if (category.length > 1) {
               category.sort((a,b) => {
@@ -71,6 +76,7 @@ export class conspiracyxVehicleSheet extends ActorSheet {
       }
 
       // Assign and return items
+      actorData.vehicles = vehicles
       actorData.item = item
       actorData.equippedItem = equippedItem
       actorData.weapon = weapon
