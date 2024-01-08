@@ -62,7 +62,7 @@
       }],
     "url": "https://github.com/Mystery-Man-From-Ouperspace/conspiracyx",
     "background": "/systems/conspiracyx/images/conx_background/zone_51_conspiracy_x.jpg",
-    "manifest": "https://github.com/DogBoneZone/conspiracyx/raw/main/system.json",
-    "download": "https://github.com/DogBoneZone/conspiracyx/-/archive/1.27/conspiracyx-1.27.zip",
+    "manifest": "",
+    "download": "",
     "license": "LICENSE.txt"
 }
