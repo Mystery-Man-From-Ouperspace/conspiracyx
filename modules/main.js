@@ -68,6 +68,7 @@ Hooks.once("init", async function() {
       // Game Settings
       function delayedReload() {window.setTimeout(() => location.reload(), 500)}
 
+
       game.settings.register("conspiracyx", "light-mode", {
         name: game.i18n.localize("CONX.Light Mode"),
         hint: game.i18n.localize("CONX.Checking this option enables Light Mode"),
@@ -77,6 +78,49 @@ Hooks.once("init", async function() {
         type: Boolean,
         onChange: delayedReload
       });
+
+
+      /*
+      const template = 'systems/conspiracyx/templates/form/game-settings-form.html'
+      const name = "My Settings Submenu";
+      const label = game.i18n.localize("CONX.Choose Unisystem Game")
+      const hint = game.i18n.localize("CONX.Selecting a option here enables (...)")
+      const options = {}
+      var data = {
+        check : false,
+        choice: "CLS",
+      }
+      const form = await renderTemplate(template, data)
+      game.settings.registerMenu("conspiracyx", name, {
+        name: name,
+        label: label,                     // The text label used in the button
+        hint: hint,                       // A description of what will occur in the submenu dialog,
+        scope: "world",
+        icon: "fas fa-bars",              // A Font Awesome icon used in the submenu button
+        type: MySubmenuApplicationClass,
+                                           // A FormApplication subclass which should be created
+        restricted: true,                   // Restrict this submenu to gamemaster only
+        onChange: delayedReload
+      })
+
+      class MySubmenuApplicationClass extends FormApplication {
+        // lots of other things...
+            data = this.getData()
+
+            form = form
+            options = options
+
+            result = _updateObject(data)
+
+        getData() {
+          return game.settings.get('conspiracyx', 'My Settings Submenu');
+        }
+      
+        _updateObject(formData) {
+          const data = expandObject(formData);
+          game.settings.set('conspiracyx', 'My Settings Submenu', data);
+        }
+      } */
 })
 
 /* -------------------------------------------- */
@@ -155,3 +199,26 @@ Hooks.on("renderChatMessage", (app, html, data) => {
         })
     }
 })
+
+
+
+
+
+
+
+// Future Game Settings
+/*
+Classic
+CJ Carella's WitchCraft/SorCellerie (1996, Myrmidon Press, 1999, Eden Studios/2001, 7e Cercle)
+CJ Carella's Armageddon: the End Times (1996, Myrmidon Press, 2003, Eden Studios)
+All Flesh Must Be Eaten (1999, Eden Studios)
+Terra Primate (2002, Eden Studios)
+Conspiracy X, 2nd Edition (2006, Eden Studios)
+Cinematic
+Buffy: the Vampire Slayer (2002, Eden Studios)
+Angel: the RPG (2003, Eden Studios)
+Army of Darkness (2005, Eden Studios)
+City of Heroes (2005, Eden Studios)
+Ghosts of Albion (2007, Eden Studios)
+Eldritch Skies (2012, Battlefield Press)
+*/
