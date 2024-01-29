@@ -142,11 +142,13 @@ export class conspiracyxItem extends Item {
   
         // Build Damage String by combining Damage Entry with Damage Multiplier Entry (Looks at Actor to grab Multiplier Value)
         // This does not apply to weapons on vehicles
-        if (itemData.damage_cha_multiplier != "none" && this.isEmbedded && this.actor.type != 'vehicle') {
+        // if (itemData.damage_cha_multiplier != "none" && this.isEmbedded && this.actor.type != 'vehicle') {
+        if (itemData.damage_cha_multiplier != "none" && this.isEmbedded && actorData.type != 'vehicle') {
             itemData.damage_string = `${itemData.damage}*${actorData[itemData.damage_cha_multiplier].value + (itemData.damage_type == 1 ? 1 : 0)}`
         }
         else  {
             itemData.damage_string = itemData.damage
         }
+    
     }
 }
