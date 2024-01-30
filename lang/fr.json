@@ -202,11 +202,11 @@
   "CONX.Type": "Type",
   "CONX.Prerequisite": "Prérequis",
 
-  "CONX.Borrowed": "0 - Emprunté",
-  "CONX.LocationA": "1 - Local A",
-  "CONX.LocationB": "2 - Local B",
-  "CONX.LocationC": "3 - Local C",
-  "CONX.LocationD": "4 - Local D",
+  "CONX.Borrowed": "* Emprunté·e",
+  "CONX.LocationA": "Local A",
+  "CONX.LocationB": "Local B",
+  "CONX.LocationC": "Local C",
+  "CONX.LocationD": "Local D",
 
   "CONX.Delete Item": "Supprimer l'entrée",
 

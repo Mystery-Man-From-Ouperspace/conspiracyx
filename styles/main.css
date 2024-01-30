@@ -280,6 +280,7 @@
  }
 
  .conspiracyx .description-container .editor {
+    min-height: 300px;
     width: 100%;
  }
 
