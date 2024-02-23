@@ -12,7 +12,7 @@ and uses no trademarked content or media from any of the games or rulebooks. The
 I highly encourage all users to buy or download a copy of the AFMBE Core Rulebook and many content additions. You can find some quick
 links to purchase this content further below.
 
-All rights for the game belong to Eden Studios and their affiliated partners. Eden Studios makes no represenation or warranty as to
+All rights for the game belong to Eden Studios and their affiliated partners. Eden Studios makes no representation or warranty as to
 the quality, viability, or suitability for purpose of this product.
 
 You can purchase the rulebooks from their website https://www.edenstudios.net/ or from DrivethruRPG at
