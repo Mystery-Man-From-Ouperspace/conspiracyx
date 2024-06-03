@@ -238,7 +238,7 @@ export class conspiracyxCreatureSheet extends ActorSheet {
                 },
                 two: {
                     label: game.i18n.localize("CONX.Roll"),
-                    callback: html => {
+                    callback: async html => {
                         // Grab the selected options
                         let attributeTestSelect = html[0].querySelector('#attributeTestSelect').value
                         let userInputModifier = Number(html[0].querySelector('#inputModifier').value)
@@ -255,7 +255,8 @@ export class conspiracyxCreatureSheet extends ActorSheet {
 
                         // Roll Dice
                         let roll = new Roll('1d10')
-                        roll.roll({async: false})
+                        await roll.roll()
+                        await game?.dice3d?.showForRoll(roll)
 
                         // Calculate total result after modifiers
                         let totalResult = Number(roll.result) + rollMod
@@ -375,13 +376,14 @@ export class conspiracyxCreatureSheet extends ActorSheet {
                 },
                 two: {
                     label: game.i18n.localize("CONX.Roll"),
-                    callback: html => {
+                    callback: async html => {
                         // Grab Values from Dialog
                         let shotNumber = html[0].querySelector('#shotNumber').value
                         let firingMode = html[0].querySelector('#firingMode').value
 
                         let roll = new Roll(weapon.system.damage_string)
-                        roll.roll({async: false})
+                        await roll.roll()
+                        await game?.dice3d?.showForRoll(roll)
 
                         let tags = [`<div>`+game.i18n.localize("CONX.Damage Roll")+`</div>`]
                         if (firingMode != game.i18n.localize("CONX.None/Melee")) {tags.push(`<div>${firingMode}: ${shotNumber}</div>`)}
@@ -437,13 +439,14 @@ export class conspiracyxCreatureSheet extends ActorSheet {
         d.render(true)
     }
 
-    _onArmorRoll(event) {
+    async _onArmorRoll(event) {
         event.preventDefault()
         let element = event.currentTarget
         let equippedItem = this.actor.getEmbeddedDocument("Item", element.closest('.item').dataset.itemId)
 
         let roll = new Roll(equippedItem.system.armor_value)
-        roll.roll({async: false})
+        await roll.roll()
+        await game?.dice3d?.showForRoll(roll)
 
         // Create Chat Content
         let chatContent = `<div>

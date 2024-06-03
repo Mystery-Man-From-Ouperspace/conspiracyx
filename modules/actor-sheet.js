@@ -97,13 +97,13 @@ export class conspiracyxActorSheet extends ActorSheet {
       actorData.quality = quality
       actorData.skill = skill
       actorData.drawback = drawback
-  }
+    }
 
-  get template() {
-    const path = "systems/conspiracyx/templates";
-    if (!game.user.isGM && this.actor.limited) return "systems/conspiracyx/templates/limited-character-sheet.html"; 
-    return `${path}/${this.actor.type}-sheet.html`;
-  }
+    get template() {
+        const path = "systems/conspiracyx/templates";
+        if (!game.user.isGM && this.actor.limited) return "systems/conspiracyx/templates/limited-character-sheet.html"; 
+        return `${path}/${this.actor.type}-sheet.html`;
+    }
 
   /** @override */
     async activateListeners(html) {
@@ -193,7 +193,7 @@ export class conspiracyxActorSheet extends ActorSheet {
         }
     }
 
-    _onAttributeRoll(event) {
+     _onAttributeRoll(event) {
         event.preventDefault()
         let element = event.currentTarget
         let attributeLabel = element.dataset.attributeName
@@ -301,7 +301,7 @@ export class conspiracyxActorSheet extends ActorSheet {
                 },
                 two: {
                     label: game.i18n.localize("CONX.Roll"),
-                    callback: html => {
+                    callback: async html => {
                         // Grab the selected options
                         let attributeTestSelect = html[0].querySelector('#attributeTestSelect').value
                         let userInputModifier = Number(html[0].querySelector('#inputModifier').value)
@@ -321,7 +321,8 @@ export class conspiracyxActorSheet extends ActorSheet {
 
                         // Roll Dice
                         let roll = new Roll('1d10')
-                        roll.roll({async: false})
+                        await roll.roll()
+                        await game?.dice3d?.showForRoll(roll)
 
                         // Calculate total result after modifiers
                         let totalResult = Number(roll.result) + rollMod
@@ -442,13 +443,14 @@ export class conspiracyxActorSheet extends ActorSheet {
                 },
                 two: {
                     label: game.i18n.localize("CONX.Roll"),
-                    callback: html => {
+                    callback: async html => {
                         // Grab Values from Dialog
                         let shotNumber = html[0].querySelector('#shotNumber').value
                         let firingMode = html[0].querySelector('#firingMode').value
 
                         let roll = new Roll(weapon.system.damage_string)
-                        roll.roll({async: false})
+                        await roll.roll()
+                        await game?.dice3d?.showForRoll(roll)
 
                         let tags = [`<div>`+game.i18n.localize("CONX.Damage Roll")+`</div>`]
                         if (firingMode != game.i18n.localize("CONX.None/Melee")) {tags.push(`<div>${firingMode}: ${shotNumber}</div>`)}
@@ -504,13 +506,14 @@ export class conspiracyxActorSheet extends ActorSheet {
         d.render(true)
     }
 
-    _onArmorRoll(event) {
+    async _onArmorRoll(event) {
         event.preventDefault()
         let element = event.currentTarget
         let equippedItem = this.actor.getEmbeddedDocument("Item", element.closest('.item').dataset.itemId)
 
         let roll = new Roll(equippedItem.system.armor_value)
-        roll.roll({async: false})
+        await roll.roll()
+        await game?.dice3d?.showForRoll(roll)
 
         let tags = [`<div>`+game.i18n.localize("CONX.Armor Roll")+`</div>`]
 

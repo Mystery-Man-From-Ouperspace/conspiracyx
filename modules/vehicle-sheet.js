@@ -128,13 +128,14 @@ export class conspiracyxVehicleSheet extends ActorSheet {
         return Item.create(itemData, {parent: this.actor})
     }
 
-    _onDamageRoll(event) {
+    async _onDamageRoll(event) {
         event.preventDefault()
         let element = event.currentTarget
         let weapon = this.actor.getEmbeddedDocument("Item", element.closest('.item').dataset.itemId)
 
         let roll = new Roll(weapon.system.damage)
-        roll.roll({async: false})
+        await roll.roll()
+        await game?.dice3d?.showForRoll(roll)
 
         // Create Chat Content
         let chatContent = `<div>
@@ -165,13 +166,14 @@ export class conspiracyxVehicleSheet extends ActorSheet {
           })
     }
 
-    _onArmorRoll(event) {
+    async _onArmorRoll(event) {
         event.preventDefault()
         let element = event.currentTarget
         let equippedItem = this.actor.getEmbeddedDocument("Item", element.closest('.item').dataset.itemId)
 
         let roll = new Roll(equippedItem.system.armor_value)
-        roll.roll({async: false})
+        await roll.roll()
+        await game?.dice3d?.showForRoll(roll)
 
         // Create Chat Content
         let chatContent = `<div>

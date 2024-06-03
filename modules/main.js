@@ -6,6 +6,8 @@ import { conspiracyxItemSheet } from "./item-sheet.js";
 import { conspiracyxCellSheet } from "./cell-sheet.js"
 import { conspiracyxCreatureSheet } from "./creature-sheet.js"
 import { conspiracyxVehicleSheet } from "./vehicle-sheet.js"
+import { registerHandlebarsHelpers } from "./helpers.js";
+
 
 /* -------------------------------------------- */
 /*  Foundry VTT Initialization                  */
@@ -22,6 +24,11 @@ Hooks.once("init", async function() {
         formula: "1d10 + @initiative.value",
         decimals: 0
       };
+
+      
+      // Register Handlebars Helpers
+      registerHandlebarsHelpers();
+
 
       // Define Custom Entity Classes
       CONFIG.Actor.documentClass = conspiracyxActor
@@ -68,7 +75,6 @@ Hooks.once("init", async function() {
       // Game Settings
       function delayedReload() {window.setTimeout(() => location.reload(), 500)}
 
-
       game.settings.register("conspiracyx", "light-mode", {
         name: game.i18n.localize("CONX.Light Mode"),
         hint: game.i18n.localize("CONX.Checking this option enables Light Mode"),
@@ -78,8 +84,8 @@ Hooks.once("init", async function() {
         type: Boolean,
         onChange: delayedReload
       });
-      
 })
+
 
 /* -------------------------------------------- */
 /*  Chat Message Hooks                          */
@@ -90,14 +96,15 @@ Hooks.on("renderChatMessage", (app, html, data) => {
     let chatButton = html[0].querySelector("[data-roll='roll-again']")
 
     if (chatButton != undefined && chatButton != null) {
-        chatButton.addEventListener('click', () => {
+        chatButton.addEventListener('click', async () => {
             let ruleTag = ''
 
             if (html[0].querySelector("[data-roll='dice-result']").textContent == 10) {ruleTag = game.i18n.localize("CONX.Rule of Ten Re-Roll")}
             if (html[0].querySelector("[data-roll='dice-result']").textContent == 1)  {ruleTag = game.i18n.localize("CONX.Rule of One Re-Roll")}
 
             let roll = new Roll('1d10')
-            roll.roll({async: false})
+            await roll.roll()
+            await game?.dice3d?.showForRoll(roll)
 
             // Grab and Set Values from Previous Roll
             let attributeLabel = html[0].querySelector('h2').outerHTML
@@ -157,26 +164,3 @@ Hooks.on("renderChatMessage", (app, html, data) => {
         })
     }
 })
-
-
-
-
-
-
-
-// Future Game Settings
-/*
-Classic
-CJ Carella's WitchCraft/SorCellerie (1996, Myrmidon Press, 1999, Eden Studios/2001, 7e Cercle)
-CJ Carella's Armageddon: the End Times (1996, Myrmidon Press, 2003, Eden Studios)
-All Flesh Must Be Eaten (1999, Eden Studios)
-Terra Primate (2002, Eden Studios)
-Conspiracy X, 2nd Edition (2006, Eden Studios)
-Cinematic
-Buffy: the Vampire Slayer (2002, Eden Studios)
-Angel: the RPG (2003, Eden Studios)
-Army of Darkness (2005, Eden Studios)
-City of Heroes (2005, Eden Studios)
-Ghosts of Albion (2007, Eden Studios)
-Eldritch Skies (2012, Battlefield Press)
-*/
