@@ -5,7 +5,7 @@ A fanmade FoundryVTT system to play Conspiracy X 2.0 by Eden Studios.
 You can purchase the rulebooks from their website https://www.edenstudios.net/ or from DrivethruRPG at
 https://preview.drivethrurpg.com/fr/publisher/10/eden-studios/category/8366/conspiracy-x-2-0
 
-Done after:
+Done after DogBoneZone's:
 
 A fanmade FoundryVTT system to play All Flesh Must Be Eaten by Eden Studios. This system is unaffiliated with Eden Studios 
 and uses no trademarked content or media from any of the games or rulebooks. The system merely provides a framework to play the game.
