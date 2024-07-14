@@ -6,7 +6,18 @@
      font-family: "Industria";
      src: url(../fonts/Industria-Solid.otf);
  }
-
+ @font-face {
+    font-family: "FormataCondensed";
+    src: url(../fonts/FormataCondensed.ttf);
+}
+@font-face {
+    font-family: "FormataCondensedBold";
+    src: url(../fonts/FormataCondensed_Bold.ttf);
+}
+@font-face {
+    font-family: "FormataCondensedItalic";
+    src: url(../fonts/FormataCondensed_Italic.ttf);
+}
 
  /* ------------------------------------------- 
         Global Styles
@@ -846,3 +857,24 @@
   .conspiracyx .influence-logo img {
     border: none;
   }
+
+
+  .journal-header input,
+  .journal-entry-page h1,
+  .journal-entry-page h2,
+  .journal-entry-page h3,
+  .journal-entry-page h4,
+  .journal-entry-page h5,
+  .journal-entry-page h6 {
+    font-family: "Industria";
+  }
+
+/*
+  .journal-page-content p {
+    font-family: "FormataCondensed";
+  }
+
+  .journal-page-content blockquote p {
+    font-family: "FormataCondensedItalic";
+  }
+*/
