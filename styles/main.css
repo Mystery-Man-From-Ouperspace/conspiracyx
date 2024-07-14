@@ -859,6 +859,11 @@
   }
 
 
+  
+  /* ------------------------------------------- 
+        Journals
+  ------------------------------------------- */
+
   .journal-header input,
   .journal-entry-page h1,
   .journal-entry-page h2,
@@ -868,13 +873,3 @@
   .journal-entry-page h6 {
     font-family: "Industria";
   }
-
-/*
-  .journal-page-content p {
-    font-family: "FormataCondensed";
-  }
-
-  .journal-page-content blockquote p {
-    font-family: "FormataCondensedItalic";
-  }
-*/
