@@ -822,7 +822,10 @@
 
 
 
-
+/*
+var myVar = 4;
+document.body.className = (myVar == 5 ? "aegis" : "ndd");
+*/
 
 #logo {
     content: url("/systems/conspiracyx/images/conx_logo_normal.png");
@@ -831,9 +834,17 @@
     margin-left: 9px;
     margin-top: 8px;
   }
-  
-  #pause > img {
+
+  body.conx-aegis #pause > img {
     content: url("/systems/conspiracyx/images/aegis.png");
+    height: 192px;
+    width: 192px;
+    top: -45px;
+    left: calc(50% - 96px);
+  }
+  
+  body.conx-ndd #pause > img {
+    content: url("/systems/conspiracyx/images/ndd.png");
     height: 192px;
     width: 192px;
     top: -45px;

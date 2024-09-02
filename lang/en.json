@@ -172,6 +172,10 @@
   "CONX.Checking this option enables Light Mode":
             "Checking this option enables Light Mode, stripping away the dark mode aesthetics from the sheets.",
 
+  "CONX.Aegis-NDD": "Play NDD Agents",
+  "CONX.Checking this option enables NDD wheel instead of Aegis wheel": "Checking this option enables NDD wheel instead of Aegis wheel when game is paused.",
+          
+
   "CONX.Locations": "Locations",
   "CONX.Facilities": "Facilities",
   "CONX.Staff": "Staff",
@@ -252,7 +256,7 @@
   "CONX.City of Heroes": "City of Heroes",
   "CONX.Ghosts of Albion": "Ghosts of Albion",
   "CONX.Eldritch Skies": "Eldritch Skies",
-  
+ 
 
   "TYPES": {
     "Actor": {

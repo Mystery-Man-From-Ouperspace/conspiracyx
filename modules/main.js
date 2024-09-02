@@ -84,6 +84,21 @@ Hooks.once("init", async function() {
         type: Boolean,
         onChange: delayedReload
       });
+
+
+      game.settings.register("conspiracyx", "aegis-ndd", {
+          name: game.i18n.localize("CONX.Aegis-NDD"),
+          hint: game.i18n.localize("CONX.Checking this option enables NDD wheel instead of Aegis wheel"),
+          scope: "world",
+          config: true,
+          default: false,
+          type: Boolean,
+          onChange: delayedReload
+      });
+
+      const ndd = game.settings.get("conspiracyx", "aegis-ndd");
+      document.body.classList.add(ndd ? "conx-ndd" : "conx-aegis");  
+
 })
 
 
