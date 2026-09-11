@@ -144,6 +144,7 @@
   
   "CONX.Attribute Roll": "Jet d′Attribut",
   "CONX.Weapon Roll": "Jet d′Arme",
+  "CONX.Armor Roll": "Jet d′Armure",
 
   "CONX.If a ranged weapon": "S'il s'agit d'une arme à distance",
   "CONX.select how many shots": ", saisissez le nombre de tirs à effectuer puis sélectionnez le mode de tir de l'arme. Le nombre de tirs effectués sera déduit du contenu courant du chargeur de l'arme. Assurez-vous de disposer d'assez de munitions dans la chambre !",
@@ -246,29 +247,30 @@
 
 
 
-"TYPES": {
-  "Actor": {
-    "character": "Personnage",
-    "creature": "Créature",
-    "cell": "Cellule",
-    "vehicle": "Véhicule"
-  },
-  "Item": {
-    "quality": "Qualité",
-    "drawback": "Désavantage",
-    "skill": "Compétence",
-    "power": "Pouvoir",
-    "aspect": "Aspect",
-    "weapon": "Arme",
-    "item": "Objet",
-    "locations": "Local",
-    "facilities": "Installation",
-    "staff": "Personnel",
-    "weaponery": "Armement",
-    "gear": "Matériel",
-    "vehicles": "Véhicule",
-    "science": "Ressource scientifique",
-    "medical": "Ressource médicale",
-    "restricted": "Ressource à accès restreint"  }
-}
+  "TYPES": {
+    "Actor": {
+      "character": "Personnage",
+      "creature": "Créature",
+      "cell": "Cellule",
+      "vehicle": "Véhicule"
+    },
+    "Item": {
+      "quality": "Qualité",
+      "drawback": "Désavantage",
+      "skill": "Compétence",
+      "power": "Pouvoir",
+      "aspect": "Aspect",
+      "weapon": "Arme",
+      "item": "Objet",
+      "locations": "Local",
+      "facilities": "Installation",
+      "staff": "Personnel",
+      "weaponery": "Armement",
+      "gear": "Matériel",
+      "vehicles": "Véhicule",
+      "science": "Ressource scientifique",
+      "medical": "Ressource médicale",
+      "restricted": "Ressource à accès restreint"
+    }
+  }
 }

@@ -144,6 +144,7 @@
 
   "CONX.Attribute Roll": "Attribute Roll",
   "CONX.Weapon Roll": "Weapon Roll",
+  "CONX.Armor Roll": "Armor Roll",
 
   "CONX.If a ranged weapon": "If a ranged weapon",
   "CONX.select how many shots": ", select how many shots to take and select weapon firing mode. The number of shots fired will be reduced from the weapon's current load capacity. Make sure you have enough ammo in the chamber!",
@@ -198,7 +199,7 @@
   "CONX.Surveillance": "Surveillance",
   "CONX.IntrusionEquipment": "Intrusion Equip.",
   "CONX.Electronics": "Electronics",
-  "CONX.software": "Software",
+  "CONX.Software": "Software",
   "CONX.PersonnelEquipment": "Personnel Equip.",
 
   "CONX.Vehicles & Accessories": "Vehicles & Accessories",
